@@ -1,4 +1,5 @@
 package fr.adaming.model;
+
 import java.util.Date;
 
 import javax.persistence.Embedded;
@@ -15,13 +16,12 @@ import javax.persistence.TemporalType;
 import fr.adaming.model.Adresse;
 
 @Entity
-@Table(name="accompagnants")
-@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+@Table(name = "accompagnants")
 public class Accompagnant {
-	
+
 	// déclaration des attributs
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String civilite;
 	private String nom;
@@ -30,7 +30,7 @@ public class Accompagnant {
 	private Date dn;
 	@Embedded
 	private Adresse adresse;
-	
+
 	// déclarations des constructeurs
 	public Accompagnant() {
 		super();
@@ -103,8 +103,12 @@ public class Accompagnant {
 	public void setAdresse(Adresse adresse) {
 		this.adresse = adresse;
 	}
-	
-	
 
-	
+	// toString
+	@Override
+	public String toString() {
+		return "Accompagnant [id=" + id + ", civilite=" + civilite + ", nom=" + nom + ", prenom=" + prenom + ", dn="
+				+ dn + ", adresse=" + adresse + "]";
+	}
+
 }

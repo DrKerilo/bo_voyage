@@ -6,71 +6,116 @@ import java.util.List;
 import javax.persistence.AttributeOverride;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
-@Table(name="clients")
-@AttributeOverride(name="id", column=@Column(name="id_cl"))
-public class Client extends Accompagnant{
+@Table(name = "clients")
+public class Client {
 
-	// Déclaration des attributs 
-	private String tel;
-	private String mail;
-	private String mdp;
-	
-	@OneToMany(mappedBy="client", cascade=CascadeType.REMOVE, fetch=FetchType.EAGER)
+	// Déclaration des attributs
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_cl")
+	private int id;
+	private String civilite;
+	private String nom;
+	private String prenom;
+	@Temporal(TemporalType.DATE)
+	private Date dn;
+	@Embedded
+	private Adresse adresse;
+
+	// Transformation de l'association UML en Java
+	@OneToMany(mappedBy = "client", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
 	private List<Reservation> listeReservation;
 
+	// Constructeurs
 	public Client() {
 		super();
 	}
-	
-	
 
-	
-	public Client(String civilite, String nom, String prenom, Date dn, Adresse adresse, String tel, String mail,
-			String mdp) {
-		super(civilite, nom, prenom, dn, adresse);
-		this.tel = tel;
-		this.mail = mail;
-		this.mdp = mdp;
+	public Client(String civilite, String nom, String prenom, Date dn, Adresse adresse,
+			List<Reservation> listeReservation) {
+		super();
+		this.civilite = civilite;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.dn = dn;
+		this.adresse = adresse;
+		this.listeReservation = listeReservation;
 	}
 
-
-
-
-	public Client(int id, String civilite, String nom, String prenom, Date dn, Adresse adresse, String tel, String mail,
-			String mdp) {
-		super(id, civilite, nom, prenom, dn, adresse);
-		this.tel = tel;
-		this.mail = mail;
-		this.mdp = mdp;
+	public Client(int id, String civilite, String nom, String prenom, Date dn, Adresse adresse,
+			List<Reservation> listeReservation) {
+		super();
+		this.id = id;
+		this.civilite = civilite;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.dn = dn;
+		this.adresse = adresse;
+		this.listeReservation = listeReservation;
 	}
 
-
-
-
-	// Déclaration des getters et des setters 
-	public String getTel() {
-		return tel;
+	// Getters et setters
+	public int getId() {
+		return id;
 	}
 
-	public void setTel(String tel) {
-		this.tel = tel;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public String getMail() {
-		return mail;
+	public String getCivilite() {
+		return civilite;
 	}
 
-	public void setMail(String mail) {
-		this.mail = mail;
+	public void setCivilite(String civilite) {
+		this.civilite = civilite;
+	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public String getPrenom() {
+		return prenom;
+	}
+
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
+	}
+
+	public Date getDn() {
+		return dn;
+	}
+
+	public void setDn(Date dn) {
+		this.dn = dn;
+	}
+
+	public Adresse getAdresse() {
+		return adresse;
+	}
+
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
 	}
 
 	public List<Reservation> getListeReservation() {
@@ -81,22 +126,11 @@ public class Client extends Accompagnant{
 		this.listeReservation = listeReservation;
 	}
 
-
-
-
-	public String getMdp() {
-		return mdp;
+	// toString
+	@Override
+	public String toString() {
+		return "Client [id=" + id + ", civilite=" + civilite + ", nom=" + nom + ", prenom=" + prenom + ", dn=" + dn
+				+ ", adresse=" + adresse + ", listeReservation=" + listeReservation + "]";
 	}
 
-
-
-
-	public void setMdp(String mdp) {
-		this.mdp = mdp;
-	}
-	
-	
-	
-	
-	
 }
