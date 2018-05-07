@@ -15,9 +15,9 @@ import fr.adaming.model.Hotel;
 @Repository
 public class HotelDaoImpl implements IHotelDao {
 
+
 	@Autowired
-	EntityManagerFactory emf=Persistence.createEntityManagerFactory("PU_BoVoyage_JPA");
-	EntityManager em=emf.createEntityManager();
+	private EntityManager em;
 	EntityTransaction tx=em.getTransaction();
 	
 	
