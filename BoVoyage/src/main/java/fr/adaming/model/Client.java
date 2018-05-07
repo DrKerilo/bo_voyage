@@ -16,7 +16,6 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="clients")
-@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
 @AttributeOverride(name="id", column=@Column(name="id_cl"))
 public class Client extends Accompagnant{
 
