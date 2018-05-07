@@ -9,5 +9,7 @@
 </head>
 <body>
 Vous êtes dans l'accueil.
+
+<a href="<c:url value='/j_spring_security_logout'/>">Deconnexion</a>
 </body>
 </html>
