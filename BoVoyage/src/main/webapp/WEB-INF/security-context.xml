@@ -40,7 +40,7 @@
 
 			<!-- Utiliser les données de la base de données pour récupérer les utilisateurs -->
 			<security:jdbc-user-service
-				data-source-ref="dataSource"
+				data-source-ref="dataSourceBean"
 				users-by-username-query="SELECT mail, mdp, active FROM agents WHERE mail=?"
 				authorities-by-username-query="SELECT ag.mail, r.rolename FROM agents ag, roles r WHERE ag.id_ag=r.ag_id AND ag.mail=?" />
 		</security:authentication-provider>
