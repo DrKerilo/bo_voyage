@@ -49,7 +49,7 @@ public class Offre implements Serializable {
 	private String imageOff;
 
 	// Transfo assos avec voiture
-	@OneToOne(mappedBy = "offre")
+	@OneToOne(mappedBy = "offreVoyage")
 	private Voiture voiture;
 
 	// Transfo assos avec reservation
