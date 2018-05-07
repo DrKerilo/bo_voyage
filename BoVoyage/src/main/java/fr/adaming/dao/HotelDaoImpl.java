@@ -16,10 +16,6 @@ import fr.adaming.model.Hotel;
 public class HotelDaoImpl implements IHotelDao {
 
 
-	@Autowired
-	private EntityManager em;
-
-	
 	
 	@Override
 	public int deleteHotel(int id) {
