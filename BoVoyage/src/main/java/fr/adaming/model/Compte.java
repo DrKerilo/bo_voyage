@@ -39,8 +39,15 @@ public class Compte {
 		this.numeroCompte = numeroCompte;
 		this.solde = solde;
 	}
+	
+	public Compte(int numeroCompte, double solde) {
+		super();
+		this.numeroCompte = numeroCompte;
+		this.solde = solde;
+	}
+	
+	
 	//getters et setters
-
 	public int getId() {
 		return id;
 	}
@@ -65,7 +72,14 @@ public class Compte {
 		this.solde = solde;
 	}
 
-	
+
+	public List<Reservation> getListeReservations() {
+		return listeReservations;
+	}
+
+	public void setListeReservations(List<Reservation> listeReservations) {
+		this.listeReservations = listeReservations;
+	}
 
 	//to string
 	@Override

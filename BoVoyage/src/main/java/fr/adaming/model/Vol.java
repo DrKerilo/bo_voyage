@@ -92,7 +92,14 @@ public class Vol {
 		this.horaire = horaire;
 	}
 
-	
+	public List<Offre> getListeOffre() {
+		return listeOffre;
+	}
+
+	public void setListeOffre(List<Offre> listeOffre) {
+		this.listeOffre = listeOffre;
+	}
+
 	//toString
 	@Override
 	public String toString() {
