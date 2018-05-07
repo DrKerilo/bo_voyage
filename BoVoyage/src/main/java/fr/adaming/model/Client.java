@@ -1,5 +1,6 @@
 package fr.adaming.model;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.AttributeOverride;
@@ -22,6 +23,7 @@ public class Client extends Accompagnant{
 	// Déclaration des attributs 
 	private String tel;
 	private String mail;
+	private String mdp;
 	
 	@OneToMany(mappedBy="client", cascade=CascadeType.REMOVE, fetch=FetchType.EAGER)
 	private List<Reservation> listeReservation;
@@ -29,8 +31,32 @@ public class Client extends Accompagnant{
 	public Client() {
 		super();
 	}
+	
+	
 
 	
+	public Client(String civilite, String nom, String prenom, Date dn, Adresse adresse, String tel, String mail,
+			String mdp) {
+		super(civilite, nom, prenom, dn, adresse);
+		this.tel = tel;
+		this.mail = mail;
+		this.mdp = mdp;
+	}
+
+
+
+
+	public Client(int id, String civilite, String nom, String prenom, Date dn, Adresse adresse, String tel, String mail,
+			String mdp) {
+		super(id, civilite, nom, prenom, dn, adresse);
+		this.tel = tel;
+		this.mail = mail;
+		this.mdp = mdp;
+	}
+
+
+
+
 	// Déclaration des getters et des setters 
 	public String getTel() {
 		return tel;
@@ -54,6 +80,20 @@ public class Client extends Accompagnant{
 
 	public void setListeReservation(List<Reservation> listeReservation) {
 		this.listeReservation = listeReservation;
+	}
+
+
+
+
+	public String getMdp() {
+		return mdp;
+	}
+
+
+
+
+	public void setMdp(String mdp) {
+		this.mdp = mdp;
 	}
 	
 	
