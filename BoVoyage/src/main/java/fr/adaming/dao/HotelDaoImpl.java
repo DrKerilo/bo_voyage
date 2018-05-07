@@ -18,7 +18,7 @@ public class HotelDaoImpl implements IHotelDao {
 
 	@Autowired
 	private EntityManager em;
-	EntityTransaction tx=em.getTransaction();
+
 	
 	
 	@Override
