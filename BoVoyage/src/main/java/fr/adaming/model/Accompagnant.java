@@ -9,11 +9,9 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.xml.bind.annotation.XmlRootElement;
 
 import fr.adaming.model.Adresse;
 
-@XmlRootElement
 @Entity
 @Table(name="accompagnants")
 public class Accompagnant {
