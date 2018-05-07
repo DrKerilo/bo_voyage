@@ -3,5 +3,53 @@
 	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
 	id="WebApp_ID" version="3.1">
-	
-	</web-app>
+
+	<!-- ===== Etape 0 ===== -->
+	<!-- Déclaration d'un listener afin de charger les différents contextes 
+		Spring -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<!-- ===== Etape 1 ===== -->
+	<!-- Localisation des fichiers de configuration des contextes de Spring 
+		IoC et Security -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/security-context.xml</param-value>
+	</context-param>
+
+	<!-- ===== Etape 2 ===== -->
+	<!-- Déclaration de la servlet unique de Spring MVC -->
+	<servlet>
+		<servlet-name>mvc</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+	</servlet>
+
+	<!-- ===== Etape 3 ===== -->
+	<!-- Mapping de la servlet unique de Spring MVC -->
+	<servlet-mapping>
+		<servlet-name>mvc</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+
+	<!-- ===== Etape 4 ===== -->
+	<!-- Déclaration du filtre de Spring Security -->
+<!-- 	<filter> -->
+<!-- 		<filter-name>springSecurityFilterChain</filter-name> -->
+<!-- 		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class> -->
+<!-- 	</filter> -->
+
+	<!-- ===== Etape 5 ===== -->
+	<!-- Mapping du filtre de Spring Security -->
+<!-- 	<filter-mapping> -->
+<!-- 		<filter-name>springSecurityFilterChain</filter-name> -->
+<!-- 		<url-pattern>/*</url-pattern>	Ici, * est obligatoire -->
+<!-- 	</filter-mapping> -->
+
+	<!-- ===== Etape 6 ===== -->
+	<!-- Page d'accueil de l'application -->
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>
