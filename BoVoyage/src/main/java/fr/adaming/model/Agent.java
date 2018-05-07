@@ -20,6 +20,7 @@ public class Agent implements Serializable{
 	private int id;
 	private String mail;
 	private String mdp;
+	@Column(columnDefinition="TINYINT(1)")
 	private boolean active;
 	
 	// transformation uml en java	
