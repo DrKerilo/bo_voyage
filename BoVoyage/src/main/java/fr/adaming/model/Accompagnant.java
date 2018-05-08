@@ -1,7 +1,9 @@
 package fr.adaming.model;
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +11,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -22,6 +27,7 @@ public class Accompagnant {
 	// déclaration des attributs
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_ac")
 	private int id;
 	private String civilite;
 	private String nom;
@@ -30,6 +36,11 @@ public class Accompagnant {
 	private Date dn;
 	@Embedded
 	private Adresse adresse;
+
+	// Transformation de l'association UML en Java
+	@ManyToMany
+	@JoinTable(name = "accompagnants_reservations", joinColumns = @JoinColumn(name = "ac_id", referencedColumnName = "id_ac"), inverseJoinColumns = @JoinColumn(name = "res_id", referencedColumnName = "id_res"))
+	private List<Reservation> listeRes;
 
 	// déclarations des constructeurs
 	public Accompagnant() {
@@ -102,6 +113,14 @@ public class Accompagnant {
 
 	public void setAdresse(Adresse adresse) {
 		this.adresse = adresse;
+	}
+
+	public List<Reservation> getListeRes() {
+		return listeRes;
+	}
+
+	public void setListeRes(List<Reservation> listeRes) {
+		this.listeRes = listeRes;
 	}
 
 	// toString

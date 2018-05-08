@@ -1,6 +1,7 @@
 package fr.adaming.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,12 +9,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "reservations")
-public class Reservation implements Serializable{
+public class Reservation implements Serializable {
 
 	@Id
 	@Column(name = "id_res")
@@ -34,6 +36,10 @@ public class Reservation implements Serializable{
 	@ManyToOne
 	@JoinColumn(name = "cl_id", referencedColumnName = "id_cl")
 	private Client client;
+
+	// Transfo assos avec accompagnant
+	@ManyToMany(mappedBy = "listeRes")
+	private List<Accompagnant> listeAcc;
 
 	// Transfo assos avec compte
 	@ManyToOne
@@ -135,6 +141,14 @@ public class Reservation implements Serializable{
 
 	public void setCompte(Compte compte) {
 		this.compte = compte;
+	}
+
+	public List<Accompagnant> getListeAcc() {
+		return listeAcc;
+	}
+
+	public void setListeAcc(List<Accompagnant> listeAcc) {
+		this.listeAcc = listeAcc;
 	}
 
 	// toString
