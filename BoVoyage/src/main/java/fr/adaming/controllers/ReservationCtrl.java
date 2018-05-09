@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import fr.adaming.model.Client;
 import fr.adaming.model.Reservation;
 import fr.adaming.service.IReservationService;
 
@@ -149,6 +150,29 @@ public class ReservationCtrl {
 		return "listeResa";
 
 	}
+	
+	// -------------------------------------------------------------------------------------------
+	
+	// Méthode afficher la liste recherche par cargRoute
+		@RequestMapping(value = "/rechResaByClient", method = RequestMethod.GET)
+		public ModelAndView afficheFormRech1() {
+			return new ModelAndView("rechResaByClient", "resaRechCl", new Reservation());
+		}
+
+		@RequestMapping(value = "/soumettreRechResaByCl", method = RequestMethod.POST)
+		public String soumettreFormRech1(ModelMap model, @ModelAttribute("resaRechCl") Client cl) {
+			// appel de la méthode
+			List<Reservation> listeRechResa = resService.getResByClient(cl);
+
+			if (listeRechResa != null) {
+				model.addAttribute("listeRechResa", listeRechResa);
+				return "rechResaByClient";
+			} else {
+				rda.addFlashAttribute("msg", "Fail !");
+				return "redirect:rechResaByClient";
+			}
+
+		}
 
 
 }

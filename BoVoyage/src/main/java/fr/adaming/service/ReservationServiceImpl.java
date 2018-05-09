@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import fr.adaming.dao.IReservationDao;
+import fr.adaming.model.Client;
 import fr.adaming.model.Reservation;
 
 @Service
@@ -40,6 +41,11 @@ public class ReservationServiceImpl implements IReservationService {
 	@Override
 	public Reservation getResById(Reservation res) {
 		return resDao.getResById(res);
+	}
+
+	@Override
+	public List<Reservation> getResByClient(Client cl) {
+		return resDao.getResByClient(cl);
 	}
 
 }

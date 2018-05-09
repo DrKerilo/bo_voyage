@@ -29,6 +29,7 @@
 			<li><a href="<c:url value='/clientCTRL/afficheAjoutClient'/>">Ajouter</a></li>
 			<li><a href="<c:url value='/clientCTRL/afficheModifClient'/>">Modifier</a></li>
 			<li><a href="<c:url value='/clientCTRL/afficheRechClient'/>">Rechercher</a></li>
+			<li><a href="<c:url value='/resaCTRL/rechResaByClient'/>">Réservation</a></li>
 		</ul>
 	</nav>
 

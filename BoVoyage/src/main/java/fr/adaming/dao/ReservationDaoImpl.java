@@ -8,6 +8,7 @@ import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 
+import fr.adaming.model.Client;
 import fr.adaming.model.Reservation;
 
 @Repository
@@ -66,6 +67,20 @@ public class ReservationDaoImpl implements IReservationDao {
 		q.setParameter("pId", res.getId());
 
 		return (Reservation) q.getSingleResult();
+	}
+
+	@Override
+	public List<Reservation> getResByClient(Client cl) {
+		// req JPQL
+		String req = "SELECT res FROM Reservation AS res WHERE res.client.id=:pIdCl";
+		
+		//récup du query
+		Query q = em.createQuery(req);
+		
+		//passage des params
+		q.setParameter("pIdCl", cl.getId());
+		
+		return q.getResultList();
 	}
 
 }
