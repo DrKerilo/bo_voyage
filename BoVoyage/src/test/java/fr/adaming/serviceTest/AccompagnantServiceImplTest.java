@@ -90,7 +90,7 @@ public class AccompagnantServiceImplTest {
 	}
 
 	// ----- Test READ BY Reservation
-//	@Ignore
+	@Ignore
 	@Test
 	@Transactional(readOnly=true)
 	public void testGetAccompagnantByReservationService(){
