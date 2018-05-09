@@ -10,6 +10,6 @@
 <body>
 <h2 style="color:red; text-align:center">Accès non autorisé</h2>
 <br/>
-<a href="<c:url value='/agCTRL/pageAccueil'/>">Retour à l'accueil</a>
+<a href="<c:url value='/logout'/>">Retour</a>
 </body>
 </html>
