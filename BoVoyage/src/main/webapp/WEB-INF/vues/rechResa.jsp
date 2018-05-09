@@ -82,8 +82,8 @@
 				<td>${resaFind.client.id}</td>
 				<td>${resaFind.offre.id}</td>
 				<td>${resaFind.compte.id}</td>
-				<td><a href="<c:url value='/resaCTRL/supLink/${res.id}'/>">Supprimer</a>
-					| <a href="<c:url value='/resaCTRL/modifLink?pId=${res.id}'/>">Modifier</a></td>
+				<td><a href="<c:url value='/resaCTRL/supLink/${resaFind.id}'/>">Supprimer</a>
+					| <a href="<c:url value='/resaCTRL/modifLink?pId=${resaFind.id}'/>">Modifier</a></td>
 			</tr>
 
 		</table>
