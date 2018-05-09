@@ -1,4 +1,4 @@
-package fr.adaming.dao;
+package fr.adaming.controllers;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import fr.adaming.model.Offre;
-import fr.adaming.model.Vol;
 import fr.adaming.service.IOffreService;
 
 @Controller

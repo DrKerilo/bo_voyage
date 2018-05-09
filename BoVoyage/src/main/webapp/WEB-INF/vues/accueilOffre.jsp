@@ -57,20 +57,36 @@
 				<th>référence</th>
 				<th>date départ</th>
 				<th>date retour</th>
+				<th>vol</th>
 				<th>nombre de places disponibles</th>
 				<th>statut</th>
 				<th>prix publix</th>
-				<
+				<th>prix BoVoyage</th>
+				<th>hotel</th>
+				<th>photo</th>
 				<th>Operations</th>
 			</tr>
-			<c:forEach var="v" items="${listeVols}">
+			<c:forEach var="o" items="${listeOffres}">
 				<tr>
-					<td>${v.id}</td>
-					<td>${v.modele}</td>
-					<td>${v.aeroportDep}</td>
-					<td>${v.aeroportArr}</td>
-					<td>le ${v.horaire.dateDep} à ${v.horaire.heureDep}</td>
-					<td>le ${v.horaire.dateRet} à ${v.horaire.heureRet}</td>
+					<td>${o.id}</td>
+					<td>${o.formule}</td>
+					<td>${o.destination.continent}</td>
+					<td>${o.destination.pays}</td>
+					<td>${o.destination.ville}</td>
+					<td>${o.hebergement}</td>
+					<td>${o.reference}</td>
+					<td>${o.dateDep}</td>
+					<td>${o.dateRet}</td>
+					<td><a
+						href="${pageContext.request.contextPath}/agCTRL/listeVOffre/">Liste des vols</a></td>
+					<td>${o.nbPlacesDispo}</td>
+					<td>${o.statut}</td>
+					<td>${o.prixPublic}</td>
+					<td>${o.prixBoV}</td>
+					<td><a
+						href="${pageContext.request.contextPath}/agCTRL/listeH/">Liste des hotels</a></td>
+					<td>${o.photoOff}</td>
+					
 					<td><a
 						href="${pageContext.request.contextPath}/mCTRL/supprLink/${m.id}">Supprimer</a></td>
 				</tr>

@@ -40,6 +40,7 @@
 
 	<form:form cssClass="form-horizontal" method="POST" action="soumettreAjoutV"
 		modelAttribute="vAjout">
+		
 		<div class="form-group">
 			<form:label cssClass="col-sm-2 control-label" path="modele">Modele d'avion</form:label>
 			<div class="col-sm-8">
@@ -75,26 +76,12 @@
 		<div class="form-group">
 			<form:label cssClass="col-sm-2 control-label" path="horaire.dateRet">Date retour</form:label>
 			<div class="col-sm-8">
-				<form:input type="date" cssClass="form-control"
-					placeholder="horaire.dateRet" path="horaire.dateRet" />
+				<input type="time" class="form-control"
+					name="heure"/>
 			</div>
 		</div>
 		
-				<div class="form-group">
-			<form:label cssClass="col-sm-2 control-label" path="horaire.heureDep">heure départ</form:label>
-			<div class="col-sm-8">
-				<form:input type="time" cssClass="form-control"
-					placeholder="horaire.heureDep" path="horaire.heureDep" />
-			</div>
-		</div>
 
-		<div class="form-group">
-			<form:label cssClass="col-sm-2 control-label" path="horaire.heureRet">heure retour</form:label>
-			<div class="col-sm-8">
-				<form:input type="time" cssClass="form-control"
-					placeholder="horaire.heureRet" path="horaire.heureRet" />
-			</div>
-		</div>
 
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-8">

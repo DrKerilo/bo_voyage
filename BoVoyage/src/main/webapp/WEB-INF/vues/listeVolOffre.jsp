@@ -2,7 +2,6 @@
 	pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,7 +35,6 @@
 			<li role="presentation"><a
 				href="${pageContext.request.contextPath}/agCTRL/affichRecV">Rechercher
 					par id</a></li>
-					</ul>
 	</nav>
 
 	<br />
@@ -55,14 +53,14 @@
 				<th>arrivée</th>
 				<th>Operations</th>
 			</tr>
-			<c:forEach var="v" items="${listeVols}">
+			<c:forEach var="v" items="${listeVolsOff}">
 				<tr>
 					<td>${v.id}</td>
 					<td>${v.modele}</td>
 					<td>${v.aeroportDep}</td>
 					<td>${v.aeroportArr}</td>
-					<td>le ${v.horaire.dateDep} à <fmt:formatDate pattern="HH:mm" value="${v.horaire.heureDep}"/></td>
-					<td>le ${v.horaire.dateRet} à <fmt:formatDate pattern="HH:mm" value="${v.horaire.heureDep}"/></td>
+					<td>le ${v.horaire.dateDep} à ${v.horaire.heureDep}</td>
+					<td>le ${v.horaire.dateRet} à ${v.horaire.heureRet}</td>
 					<td><a
 						href="${pageContext.request.contextPath}/mCTRL/supprLink/${m.id}">Supprimer</a></td>
 				</tr>

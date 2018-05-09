@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import fr.adaming.dao.IVolDao;
+import fr.adaming.model.Offre;
 import fr.adaming.model.Vol;
 
 @Service("volService")
@@ -19,9 +20,9 @@ public class VolServiceImpl implements IVolService{
 	private IVolDao vol;
 	
 	@Override
-	public List<Vol> getAllvols() {
+	public List<Vol> getvolsByOffre(int id) {
 		
-		return vol.getAllvols();
+		return vol.getvolsByOffre(id);
 	}
 
 	@Override
@@ -46,6 +47,12 @@ public class VolServiceImpl implements IVolService{
 	public Vol getVolbyId(Vol v) {
 		
 		return vol.addVol(v);
+	}
+
+	@Override
+	public List<Vol> getAllVols() {
+		
+		return vol.getAllVols();
 	}
 
 }

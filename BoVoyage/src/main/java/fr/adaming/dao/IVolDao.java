@@ -6,7 +6,9 @@ import fr.adaming.model.Vol;
 
 public interface IVolDao {
 	
-	public List<Vol> getAllvols();
+	public List<Vol> getvolsByOffre(int id);
+	
+	public List<Vol> getAllVols();
 	
 	public Vol addVol(Vol v);
 	
