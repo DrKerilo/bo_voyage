@@ -26,6 +26,10 @@ public class Role implements Serializable{
 	@JoinColumn(name="ag_id", referencedColumnName="id_ag")
 	private Agent agent;
 	
+	@ManyToOne
+	@JoinColumn(name="cl_id", referencedColumnName="id_cl")
+	private Client client;
+	
 	public Role() {
 		super();
 	}
@@ -55,6 +59,12 @@ public class Role implements Serializable{
 	}
 	public void setAgent(Agent agent) {
 		this.agent = agent;
+	}
+	public Client getClient() {
+		return client;
+	}
+	public void setClient(Client client) {
+		this.client = client;
 	}
 	
 	

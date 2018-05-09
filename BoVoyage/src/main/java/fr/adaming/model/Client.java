@@ -3,7 +3,6 @@ package fr.adaming.model;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.AttributeOverride;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
@@ -12,10 +11,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -36,29 +32,39 @@ public class Client {
 	private Date dn;
 	@Embedded
 	private Adresse adresse;
+	
+	// attributs pour l'authentification
+	private String mail;
+	private String mdp;
+	@Column(columnDefinition="TINYINT(1)")
+	private boolean active;
 
 	// Transformation de l'association UML en Java
 	@OneToMany(mappedBy = "client", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
 	private List<Reservation> listeReservation;
+	
+	@OneToMany(mappedBy="client")
+	private List<Role> roles;
 
 	// Constructeurs
 	public Client() {
 		super();
 	}
 
-	public Client(String civilite, String nom, String prenom, Date dn, Adresse adresse,
-			List<Reservation> listeReservation) {
+	public Client(String civilite, String nom, String prenom, Date dn, Adresse adresse, String mail, String mdp) {
 		super();
 		this.civilite = civilite;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.dn = dn;
 		this.adresse = adresse;
-		this.listeReservation = listeReservation;
+		this.mail = mail;
+		this.mdp = mdp;
 	}
 
-	public Client(int id, String civilite, String nom, String prenom, Date dn, Adresse adresse,
-			List<Reservation> listeReservation) {
+
+	public Client(int id, String civilite, String nom, String prenom, Date dn, Adresse adresse, String mail,
+			String mdp) {
 		super();
 		this.id = id;
 		this.civilite = civilite;
@@ -66,7 +72,8 @@ public class Client {
 		this.prenom = prenom;
 		this.dn = dn;
 		this.adresse = adresse;
-		this.listeReservation = listeReservation;
+		this.mail = mail;
+		this.mdp = mdp;
 	}
 
 	// Getters et setters
@@ -124,13 +131,47 @@ public class Client {
 
 	public void setListeReservation(List<Reservation> listeReservation) {
 		this.listeReservation = listeReservation;
+	}	
+
+	public String getMail() {
+		return mail;
+	}
+
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
+
+	public String getMdp() {
+		return mdp;
+	}
+
+	public void setMdp(String mdp) {
+		this.mdp = mdp;
+	}
+
+	
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+
+	public List<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
 	}
 
 	// toString
 	@Override
 	public String toString() {
 		return "Client [id=" + id + ", civilite=" + civilite + ", nom=" + nom + ", prenom=" + prenom + ", dn=" + dn
-				+ ", adresse=" + adresse + ", listeReservation=" + listeReservation + "]";
+				+ ", adresse=" + adresse + ", mail=" + mail + ", mdp=" + mdp + "]";
 	}
+	
 
 }

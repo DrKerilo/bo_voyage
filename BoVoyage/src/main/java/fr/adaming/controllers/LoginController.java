@@ -22,6 +22,12 @@ public class LoginController {
 	}
 	
 	// affiche une page lorsuqe l'acces est refusé
+	@RequestMapping(value="/accesDenied", method=RequestMethod.GET)
+	public String affichePageDenied() {
+		return "deniedPage";
+	}
+	
+	// affiche une page lorsuqe l'acces est refusé
 	@RequestMapping(value="/logout", method=RequestMethod.GET)
 	public String affichePageDeconnexion() {
 		return "loginPage";
