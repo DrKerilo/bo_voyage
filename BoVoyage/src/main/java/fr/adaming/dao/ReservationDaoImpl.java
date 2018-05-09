@@ -73,13 +73,13 @@ public class ReservationDaoImpl implements IReservationDao {
 	public List<Reservation> getResByClient(Client cl) {
 		// req JPQL
 		String req = "SELECT res FROM Reservation AS res WHERE res.client.id=:pIdCl";
-		
-		//récup du query
+
+		// récup du query
 		Query q = em.createQuery(req);
-		
-		//passage des params
+
+		// passage des params
 		q.setParameter("pIdCl", cl.getId());
-		
+
 		return q.getResultList();
 	}
 
