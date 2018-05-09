@@ -74,18 +74,17 @@
 				<th>arrivée</th>
 				<th>Operations</th>
 			</tr>
-			<c:forEach var="v" items="${listeVols}">
+			
 				<tr>
-					<td>${v.id}</td>
-					<td>${v.modele}</td>
-					<td>${v.aeroportDep}</td>
-					<td>${v.aeroportArr}</td>
-					<td>le ${v.horaire.dateDep} à ${v.horaire.heureDep}</td>
-					<td>le ${v.horaire.dateRet} à ${v.horaire.heureRet}</td>
+					<td>${vFind.id}</td>
+					<td>${vFind.modele}</td>
+					<td>${vFind.aeroportDep}</td>
+					<td>${vFind.aeroportArr}</td>
+					<td>le ${vFind.horaire.dateDep} à ${vFind.horaire.heureDep}</td>
+					<td>le ${vFind.horaire.dateRet} à ${vFind.horaire.heureRet}</td>
 					<td><a
 						href="${pageContext.request.contextPath}/mCTRL/supprLink/${m.id}">Supprimer</a></td>
 				</tr>
-			</c:forEach>
 		</table>
 	</div>
 
