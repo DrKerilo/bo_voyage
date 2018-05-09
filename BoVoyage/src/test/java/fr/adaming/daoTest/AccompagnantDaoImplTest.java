@@ -90,6 +90,14 @@ public class AccompagnantDaoImplTest {
 	}
 	
 	// ----- Test READ BY Reservation
+	@Ignore
+	@Test
+	@Transactional(readOnly=true)
+	public void testGetAccompagnantByReservationDao(){
+		Double exp=(double) 2;
+		Double real = (double) accDao.getAccompagnantByReservation(1).size();
+		assertEquals(exp, real);
+	}
 	
 
 }

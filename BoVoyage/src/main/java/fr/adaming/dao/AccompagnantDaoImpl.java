@@ -67,19 +67,19 @@ public class AccompagnantDaoImpl implements IAccompagnantDao {
 		return q.executeUpdate();
 	}
 
-	// TODO : à tester !
 	// ----- READ BY Reservation
 	@Override
-	public List<Accompagnant> getAccompagnantByReservation(Reservation r) {
-		// Requête JPQL
-		String req="SELECT DISTINCT a "
-					+ "FROM Accompagnant a "
-					+ "JOIN a.listeRes r "
-					+ "WHERE r.id=:pID";
+	public List<Accompagnant> getAccompagnantByReservation(int idRes) {
+		// Requête SQL
+		String req="SELECT a.* "
+				 + "FROM accompagnants a, reservations r, accompagnants_reservations ar "
+				 + "WHERE a.id_ac=ar.ac_id "
+				 + "AND r.id_res=ar.res_id "
+				 + "AND r.id_res=:pID";
 		// Query
-		Query q=em.createQuery(req);
+		Query q=em.createNativeQuery(req, Accompagnant.class);
 		// Passage du paramètre
-		q.setParameter("pID", r.getId());
+		q.setParameter("pID", idRes);
 		// Envoi requête et récupération du résultat
 		return q.getResultList();
 	}

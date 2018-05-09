@@ -17,6 +17,6 @@ public interface IAccompagnantService {
 
 	public int deleteAccompagnant(int id);
 
-	public List<Accompagnant> getAccompagnantByReservation(Reservation r);
+	public List<Accompagnant> getAccompagnantByReservation(int idRes);
 
 }

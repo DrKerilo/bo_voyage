@@ -43,10 +43,9 @@ public class AccompagnantServiceImpl implements IAccompagnantService {
 		return accDao.deleteAccompagnant(id);
 	}
 
-	// TODO : à tester !
 	@Override
-	public List<Accompagnant> getAccompagnantByReservation(Reservation r) {
-		return accDao.getAccompagnantByReservation(r);
+	public List<Accompagnant> getAccompagnantByReservation(int idRes) {
+		return accDao.getAccompagnantByReservation(idRes);
 	}
 
 }

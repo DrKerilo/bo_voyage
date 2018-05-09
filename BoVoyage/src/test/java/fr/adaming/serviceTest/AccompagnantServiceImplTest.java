@@ -90,5 +90,13 @@ public class AccompagnantServiceImplTest {
 	}
 
 	// ----- Test READ BY Reservation
+//	@Ignore
+	@Test
+	@Transactional(readOnly=true)
+	public void testGetAccompagnantByReservationService(){
+		Double exp=(double) 2;
+		Double real = (double) accService.getAccompagnantByReservation(1).size();
+		assertEquals(exp, real);
+	}
 
 }
