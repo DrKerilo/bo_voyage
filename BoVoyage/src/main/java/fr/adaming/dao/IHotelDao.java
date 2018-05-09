@@ -10,6 +10,6 @@ public interface IHotelDao {
 	public Hotel addHotel(Hotel h);
 	public Hotel updateHotel(Hotel h);
 	public List<Hotel> getAllHotel();
-	
+	public Hotel getHotelById(int id);
 	
 }

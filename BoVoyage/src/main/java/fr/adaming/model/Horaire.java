@@ -1,5 +1,7 @@
 package fr.adaming.model;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Embeddable;
@@ -54,6 +56,7 @@ public class Horaire {
 
 	public void setHeureDep(Date heureDep) {
 		this.heureDep = heureDep;
+
 	}
 
 	public Date getHeureRet() {

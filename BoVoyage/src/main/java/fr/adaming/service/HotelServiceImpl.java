@@ -2,6 +2,8 @@ package fr.adaming.service;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,32 +11,37 @@ import fr.adaming.dao.IHotelDao;
 import fr.adaming.model.Hotel;
 
 @Service
+@Transactional
 public class HotelServiceImpl implements IHotelService {
 
 	@Autowired
-	private IHotelDao eDao;
+	private IHotelDao hDao;
 
 	@Override
 	public int deleteHotel(int id) {
 		// TODO Auto-generated method stub
-		return 0;
+		return hDao.deleteHotel(id);
 	}
 
 	@Override
 	public Hotel addHotel(Hotel h) {
-		// TODO Auto-generated method stub
-		return null;
+		return hDao.addHotel(h);
 	}
 
 	@Override
 	public Hotel updateHotel(Hotel h) {
 		// TODO Auto-generated method stub
-		return null;
+		return hDao.updateHotel(h);
 	}
 
 	@Override
 	public List<Hotel> getAllHotel() {
-		// TODO Auto-generated method stub
-		return null;
+		return hDao.getAllHotel();
+	}
+
+	@Override
+	public Hotel getHotelById(int id) {
+		
+		return hDao.getHotelById(id);
 	}
 }
