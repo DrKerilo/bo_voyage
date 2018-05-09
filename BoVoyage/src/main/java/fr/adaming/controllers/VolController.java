@@ -117,10 +117,10 @@ public class VolController {
 	// MODIFIER UN VOL
 		// afficher un fomulaire de modification
 		@RequestMapping(value = "/affichModifV", method = RequestMethod.GET)
-		public String afficheFormModif(Model modele, @ModelAttribute("vAjout")Vol v,@RequestParam("heure") @DateTimeFormat(iso=DateTimeFormat.ISO.TIME) LocalTime time) {
+		public String afficheFormModif(Model modele, @ModelAttribute("vAjout")Vol v,@RequestParam("heure") @DateTimeFormat(iso=DateTimeFormat.ISO.TIME) LocalTime time,@RequestParam("heure2") @DateTimeFormat(iso=DateTimeFormat.ISO.TIME) LocalTime time2) {
 
 			v.getHoraire().setHeureDep(new Date(20, 01, 01, time.getHour(), time.getMinute()));
-			v.getHoraire().setHeureRet(new Date(20, 01, 01, time.getHour(), time.getMinute()));
+			v.getHoraire().setHeureRet(new Date(20, 01, 01, time2.getHour(), time2.getMinute()));
 			
 			modele.addAttribute("vModif", new Vol());
 			String idPage = "modifV";
@@ -155,11 +155,9 @@ public class VolController {
 		public String soumettreFormSuppr(ModelMap modele, @ModelAttribute("vSuppr") Vol v) {
 			// supprimer la marchandise
 			int verif = volServ.deleteVol(v);
-			if (verif != 0) {
-				return "redirect:liste";
-			} else {
-				return "redirect:afficheSuppr";
-			}
+			
+				return "redirect:listeV";
+		
 		}
 	
 		// RECHERCHER UN Vol
@@ -172,11 +170,11 @@ public class VolController {
 		// soumettre un formulaire de recherche
 		@RequestMapping(value = "/soumettreRecV", method = RequestMethod.POST)
 		public String soumettreFormRec(ModelMap modele, @ModelAttribute("vRec") Vol v, RedirectAttributes rda) {
-			// rechercher l'étudiant
+			// rechercher 
 			Vol vRec = volServ.getVolbyId(v);
 
 			if (vRec != null) {
-				// mettre l'étudiant trouvé en lien avec la page
+				// mettre  en lien avec la page
 				modele.addAttribute("vFind", vRec);
 
 				return "rechercherV";
