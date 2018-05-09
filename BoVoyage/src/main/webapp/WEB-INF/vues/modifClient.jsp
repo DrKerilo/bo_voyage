@@ -103,6 +103,13 @@
 				<form:input type="email" cssClass="form-control" path="mail" />
 			</div>
 		</div>
+		
+		<div class="form-group">
+			<form:label cssClass="col-sm-2 control-label" path="mdp">Mdp</form:label>
+			<div class="col-sm-2">
+				<form:input type="password" cssClass="form-control" path="mdp" />
+			</div>
+		</div>
 
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-10">
