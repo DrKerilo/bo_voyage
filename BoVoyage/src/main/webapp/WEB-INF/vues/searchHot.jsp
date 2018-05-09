@@ -7,34 +7,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Page recherche hotel</title>
-<!-- pour utiliser bootstrapjs-->
+
+<!-- Spécifier le chemin du fichier bootstrap.css -->
+<link rel="stylesheet"
+	href="<c:url value='/resources/css/bootstrap.css' />" />
 <script type="text/javascript"
 	src="<c:url value='/resources/js/jquery-3.3.1.js'/>"></script>
-
-<!-- pour utiliser bootstrapjs-->
 <script type="text/javascript"
 	src="<c:url value='/resources/js/bootstrap.js'/>"></script>
 
-<!-- pour utiliser bootstrap -->
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/bootstrap.css'/>" />
+
 </head>
+
 <body>
 
-	<nav class="navbar navbar-inverse">
-		<ul class="nav nav-pills">
-			<li role="presentation"><a
-				href="${pageContext.request.contextPath}/agCTRL/listeHotels">AccueilVol</a></li>
-			<li role="presentation"><a
-				href="${pageContext.request.contextPath}/agCTRL">Ajouter</a></li>
-			<li role="presentation"><a
-				href="${pageContext.request.contextPath}/agCTRL/">Modifier</a></li>
-			<li role="presentation"><a
-				href="${pageContext.request.contextPath}/agCTRL">Supprimer"></a></li>
-			<li role="presentation"><a
-				href="${pageContext.request.contextPath}/agCTRL">Rechercher par
-					id</a></li>
-	</nav>
+	<%@include file="/resources/template/header.html"%>
 
 	<h1 style="color: red; text-align: center">Formulaire de recherche
 		d'un hôtel</h1>
