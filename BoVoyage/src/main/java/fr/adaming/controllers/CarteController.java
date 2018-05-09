@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/carteCTRL")
 public class CarteController {
 
+	// Controller carte
 	@RequestMapping(value = "/carteMonde", method = RequestMethod.GET)
 	public String affichePageClientCarte() {
 		return "carteMonde";
