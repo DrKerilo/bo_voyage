@@ -14,22 +14,20 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Afficher la liste des réservations pour un client</title>
 
+<!-- Spécifier le chemin du fichier bootstrap.css -->
 <link rel="stylesheet"
 	href="<c:url value='/resources/css/bootstrap.css' />" />
+<script type="text/javascript"
+	src="<c:url value='/resources/js/jquery-3.3.1.js'/>"></script>
+<script type="text/javascript"
+	src="<c:url value='/resources/js/bootstrap.js'/>"></script>
+
+
 </head>
 
 <body>
 
-	<nav class="navbar navbar-inverse">
-		<ul class="nav nav-tabs">
-			<li><a
-				href="${pageContext.request.contextPath}/clientCTRL/listeClient">Liste</a></li>
-			<li><a href="<c:url value='/clientCTRL/afficheAjoutClient'/>">Ajouter</a></li>
-			<li><a href="<c:url value='/clientCTRL/afficheModifClient'/>">Modifier</a></li>
-			<li><a href="<c:url value='/clientCTRL/afficheRechClient'/>">Rechercher</a></li>
-			<li><a href="<c:url value='/resaCTRL/rechResaByClient'/>">Réservation</a></li>
-		</ul>
-	</nav>
+	<%@include file="/resources/template/header.html"%>
 
 	<form:form cssClass="form-horizontal" action="soumettreRechResaByCl"
 		method="post" modelAttribute="resaRechCl">

@@ -26,7 +26,12 @@
 
 <body>
 
-	<%@include file="/resources/template/header.html"%>
+	<nav class="navbar navbar-inverse">
+		<ul class="nav nav-tabs">
+		<li><a href="<c:url value='/clientCTRL/afficheModifClient'/>">Modifier ses coordonnées</a></li>
+		<li><a href="<c:url value='/resaCTRL/supLink/{cl.id}'/>">Supprimer son comptes</a></li>
+		</ul>
+	</nav>
 
 
 	<h1 style="color: greenyellow; text-align: center">Liste des
@@ -48,7 +53,7 @@
 				<th style="text-align: center;">#Client</th>
 				<th style="text-align: center;">#Offre</th>
 				<th style="text-align: center;">#Compte</th>
-				<th style="text-align: center;">Opérations</th>
+				<th style="text-align: center;">Annulation</th>
 			</tr>
 
 			<c:forEach var="res" items="${listeResas}">
@@ -63,8 +68,7 @@
 					<td>${res.client.id}</td>
 					<td>${res.offre.id}</td>
 					<td>${res.compte.id}</td>
-					<td><a href="<c:url value='/resaCTRL/supLink/${res.id}'/>">Supprimer</a>
-						| <a href="<c:url value='/resaCTRL/modifLink?pId=${res.id}'/>">Modifier</a></td>
+					<td><a href="<c:url value='/resaCTRL/supLink/${res.id}'/>">annuler</a></td>
 				</tr>
 
 			</c:forEach>
