@@ -88,21 +88,23 @@
 			</div>
 		</div>
 		
-				<div class="form-group">
-			<form:label cssClass="col-sm-2 control-label" path="horaire.heureDep">heure départ</form:label>
+		<div class="form-group">
+			<form:label cssClass="col-sm-2 control-label" path="horaire.heureDep">Heure départ</form:label>
 			<div class="col-sm-8">
-				<form:input type="time" cssClass="form-control"
-					placeholder="horaire.heureDep" path="horaire.heureDep" />
+				<input type="time" class="form-control"
+					name="heure"/>
 			</div>
 		</div>
 
+
 		<div class="form-group">
-			<form:label cssClass="col-sm-2 control-label" path="horaire.heureRet">heure retour</form:label>
+			<form:label cssClass="col-sm-2 control-label" path="horaire.heureRet">Heure retour</form:label>
 			<div class="col-sm-8">
-				<form:input type="time" cssClass="form-control"
-					placeholder="horaire.heureRet" path="horaire.heureRet" />
+				<input type="time" class="form-control"
+					name="heure"/>
 			</div>
 		</div>
+		
 
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-8">

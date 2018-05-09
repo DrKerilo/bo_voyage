@@ -40,7 +40,7 @@
 		des Vols</h1>
 
 	<form:form cssClass="form-horizontal" method="POST"
-		action="soumettreRechercheM" modelAttribute="vRec">
+		action="soumettreRecV" modelAttribute="vRec">
 		<div class="form-group">
 			<form:label cssClass="col-sm-2 control-label"
 				path="id">Id du vol recherché</form:label>

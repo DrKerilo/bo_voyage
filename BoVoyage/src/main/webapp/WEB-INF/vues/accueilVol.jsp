@@ -62,7 +62,7 @@
 					<td>${v.aeroportDep}</td>
 					<td>${v.aeroportArr}</td>
 					<td>le ${v.horaire.dateDep} à <fmt:formatDate pattern="HH:mm" value="${v.horaire.heureDep}"/></td>
-					<td>le ${v.horaire.dateRet} à <fmt:formatDate pattern="HH:mm" value="${v.horaire.heureDep}"/></td>
+					<td>le ${v.horaire.dateRet} à <fmt:formatDate pattern="HH:mm" value="${v.horaire.heureRet}"/></td>
 					<td><a
 						href="${pageContext.request.contextPath}/mCTRL/supprLink/${m.id}">Supprimer</a></td>
 				</tr>

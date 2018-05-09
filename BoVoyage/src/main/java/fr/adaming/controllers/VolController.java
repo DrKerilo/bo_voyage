@@ -97,10 +97,11 @@ public class VolController {
 
 	// SOUMETTRE LE FORMULAIRE
 	@RequestMapping(value = "/soumettreAjoutV", method = RequestMethod.POST)
-	public String soumettreFormAjoutV(ModelMap modele, @ModelAttribute("vAjout")Vol v,@RequestParam("heure") @DateTimeFormat(iso=DateTimeFormat.ISO.TIME) LocalTime time) {
+	public String soumettreFormAjoutV(ModelMap modele, @ModelAttribute("vAjout")Vol v,@RequestParam("heure") @DateTimeFormat(iso=DateTimeFormat.ISO.TIME) LocalTime time,@RequestParam("heure2") @DateTimeFormat(iso=DateTimeFormat.ISO.TIME) LocalTime time2) {
 
 		
 		v.getHoraire().setHeureDep(new Date(20, 01, 01, time.getHour(), time.getMinute()));
+		v.getHoraire().setHeureRet(new Date(20, 01, 01, time2.getHour(), time2.getMinute()));
 		// appel de la methode
 		Vol vOut = volServ.addVol(v);
 
@@ -116,8 +117,11 @@ public class VolController {
 	// MODIFIER UN VOL
 		// afficher un fomulaire de modification
 		@RequestMapping(value = "/affichModifV", method = RequestMethod.GET)
-		public String afficheFormModif(Model modele) {
+		public String afficheFormModif(Model modele, @ModelAttribute("vAjout")Vol v,@RequestParam("heure") @DateTimeFormat(iso=DateTimeFormat.ISO.TIME) LocalTime time) {
 
+			v.getHoraire().setHeureDep(new Date(20, 01, 01, time.getHour(), time.getMinute()));
+			v.getHoraire().setHeureRet(new Date(20, 01, 01, time.getHour(), time.getMinute()));
+			
 			modele.addAttribute("vModif", new Vol());
 			String idPage = "modifV";
 

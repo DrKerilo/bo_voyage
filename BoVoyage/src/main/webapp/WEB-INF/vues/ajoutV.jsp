@@ -72,12 +72,29 @@
 					placeholder="horaire.dateDep" path="horaire.dateDep" />
 			</div>
 		</div>
-
+		
 		<div class="form-group">
 			<form:label cssClass="col-sm-2 control-label" path="horaire.dateRet">Date retour</form:label>
 			<div class="col-sm-8">
+				<form:input type="date" cssClass="form-control"
+					placeholder="horaire.dateRet" path="horaire.dateRet" />
+			</div>
+		</div>
+
+	<div class="form-group">
+			<form:label cssClass="col-sm-2 control-label" path="horaire.heureDep">Heure départ</form:label>
+			<div class="col-sm-8">
 				<input type="time" class="form-control"
 					name="heure"/>
+			</div>
+		</div>
+
+
+		<div class="form-group">
+			<form:label cssClass="col-sm-2 control-label" path="horaire.heureRet">Heure retour</form:label>
+			<div class="col-sm-8">
+				<input type="time" class="form-control"
+					name="heure2"/>
 			</div>
 		</div>
 		
