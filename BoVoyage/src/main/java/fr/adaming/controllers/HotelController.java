@@ -113,9 +113,45 @@ public class HotelController {
 	}
 	
 	
-	//############################ SUPPRESSION HOTEL #####################
+	//############################ MODIFICATION DES INFORMATIONS D'UN HOTEL #####################
+	
+	@RequestMapping(value="modifFormHot", method=RequestMethod.GET)
+	public ModelAndView modifHotelForm(){
+		return new ModelAndView("modifHotel", "hModif", new Hotel());
+	}
+	
+	@RequestMapping(value="soumModifHot", method=RequestMethod.POST)
+	public String soumModifHotel(@ModelAttribute("hModif")Hotel hot,@RequestParam("heure") @DateTimeFormat(iso=DateTimeFormat.ISO.TIME) LocalTime time,@RequestParam("heure2") @DateTimeFormat(iso=DateTimeFormat.ISO.TIME) LocalTime time2){
+		hot.getHoraire().setHeureDep(new Date(20, 01, 01, time.getHour(), time.getMinute()));
+		hot.getHoraire().setHeureRet(new Date(20, 01, 01, time2.getHour(), time2.getMinute()));
+		Hotel hMod=hotelService.updateHotel(hot);
+		if (hMod!=null){
+			return "redirect:listeHotels";
+		} else {
+			return "redirect:modifFormHot";
+		}
+	}
 	
 	
-	//############################ SUPPRESSION HOTEL #####################
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }
