@@ -32,9 +32,9 @@
 
 	<nav class="navbar navbar-inverse">
 		<ul class="nav nav-tabs">
-			<li><a href="<c:url value='/clientCTRL/afficheModifClient'/>">Modifier
+			<li><a href="<c:url value='/clientCTRL/modifLink2'/>">Modifier
 					ses coordonnées</a></li>
-			<li><a href="<c:url value='/resaCTRL/supLink/{cl.id}'/>"
+			<li><a href="<c:url value='/clientCTRL/supLink/{cl.id}'/>"
 				data-confirm="Etes-vous certain de vouloir supprimer?">Supprimer
 					son comptes</a></li>
 		</ul>

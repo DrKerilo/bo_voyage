@@ -25,7 +25,7 @@ import fr.adaming.service.IClientService;
 import fr.adaming.service.IReservationService;
 
 @Controller
-@RequestMapping("/resaCTRL")
+@RequestMapping("/clientCTRL")
 @Scope("session")
 public class ReservationCtrl {
 

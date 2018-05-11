@@ -81,6 +81,7 @@ public class ClientCtrl {
 	}
 
 	// -------------------------------------------------------------------------------------------
+			//Côté Agent
 
 	// Fonctionnalité modifier avec un lien
 	@RequestMapping(value = "/modifLink", method = RequestMethod.GET)
@@ -118,6 +119,48 @@ public class ClientCtrl {
 		}
 
 	}
+	
+	// -------------------------------------------------------------------------------------------
+				//Quand le client est connecté et qu'il souhaite modifier son compte
+
+		// Fonctionnalité modifier avec un lien
+		@RequestMapping(value = "/modifLink2", method = RequestMethod.GET)
+		public String modifAvecLien2(Model model, @RequestParam("pId") int id) {
+
+			Client clIn = new Client();
+			clIn.setId(id);
+			// appel de la méthode
+			Client clOut = clService.getClById(clIn);
+
+			// mettre à jour la liste dans la page d'accueil
+			model.addAttribute("clModif2", clOut);
+			return "modifClient2";
+
+		}
+		
+		// Méthode modifier
+		@RequestMapping(value = "/afficheModifClient2", method = RequestMethod.GET)
+		public String afficheFormModif2(Model model) {
+			model.addAttribute("clModif2", new Client());
+			String idMod = "modifClient2";
+			return idMod;
+		}
+
+		@RequestMapping(value = "/soumettreModifClient2", method = RequestMethod.POST)
+		public String soumettreFormModif2(ModelMap model, @ModelAttribute("clModif2") Client cl) {
+			// appel de la méthode
+			Client verif = clService.updateCl(cl);
+
+			if (verif != null) {
+				rda.addFlashAttribute("msg", "Votre compte a été modifié avec succes !");
+				return "redirect:afficheModifClient2";
+
+			} else {
+				rda.addFlashAttribute("msg", "La modification de votre compte a échoué !");
+				return "redirect:afficheModifClient2";
+			}
+
+		}
 
 	// -------------------------------------------------------------------------------------------
 
@@ -153,7 +196,7 @@ public class ClientCtrl {
 
 		if (clRech != null) {
 			model.addAttribute("clFind", clRech);
-			return "accueilClient";
+			return "rechClient";
 		} else {
 			rda.addFlashAttribute("msg", "Le client n'existe pas !");
 			return "redirect:afficheRechClient";
