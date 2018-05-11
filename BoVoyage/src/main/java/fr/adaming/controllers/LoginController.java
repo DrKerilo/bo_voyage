@@ -30,6 +30,6 @@ public class LoginController {
 	// affiche une page lorsuqe l'acces est refusé
 	@RequestMapping(value="/logout", method=RequestMethod.GET)
 	public String affichePageDeconnexion() {
-		return "loginPage";
+		return "pageIndex";
 	}
 }
