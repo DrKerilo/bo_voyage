@@ -21,20 +21,7 @@
 </head>
 <body>
 
-	<nav class="navbar navbar-inverse">
-		<ul class="nav nav-pills">
-			<li role="presentation"><a
-				href="${pageContext.request.contextPath}/agCTRL/listeO">AccueilVol</a></li>
-			<li role="presentation"><a
-				href="${pageContext.request.contextPath}/agCTRL/afficheAjoutO">Ajouter</a></li>
-			<li role="presentation"><a
-				href="${pageContext.request.contextPath}/agCTRL/affichModifO">Modifier</a></li>
-			<li role="presentation"><a
-				href="${pageContext.request.contextPath}/agCTRL/afficheSupprO">Supprimer</a></li>
-			<li role="presentation"><a
-				href="${pageContext.request.contextPath}/agCTRL/affichRecO">Rechercher
-					par id</a></li>
-	</nav>
+	<%@include file="/resources/template/header.html"%>
 
 	<h1 style="color: red; text-align: center">Supprimer une offre</h1>
 

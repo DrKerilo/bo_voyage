@@ -30,17 +30,18 @@
 		<div class="form-group">
 			<form:label cssClass="col-sm-2 control-label" path="formule">Formule</form:label>
 			<div class="col-sm-8">
-				<form:select cssClass="form-control" placeholder="formule" path="formule">
-					<OPTION  cssClass="form-control" placeholder="formule"
-					path="formule">Avion
+				<form:select cssClass="form-control" placeholder="formule"
+					path="formule">
 					<OPTION cssClass="form-control" placeholder="formule"
-					path="formule">Hotel
+						path="formule">Avion
 					<OPTION cssClass="form-control" placeholder="formule"
-					path="formule">Avion + Hotel
+						path="formule">Hotel
 					<OPTION cssClass="form-control" placeholder="formule"
-					path="formule">Avion + Voiture
+						path="formule">Avion + Hotel
 					<OPTION cssClass="form-control" placeholder="formule"
-					path="formule">Avion + Hotel + Voiture
+						path="formule">Avion + Voiture
+					<OPTION cssClass="form-control" placeholder="formule"
+						path="formule">Avion + Hotel + Voiture
 				</form:select>
 			</div>
 		</div>
@@ -76,14 +77,14 @@
 			<div class="col-sm-8">
 				<form:select cssClass="form-control" placeholder="hebergement"
 					path="hebergement">
-					<option  cssClass="form-control" placeholder="hebergement"
-					path="hebergement">hébergement seul
-					<option  cssClass="form-control" placeholder="hebergement"
-					path="hebergement">petit déjeuner
-					<option  cssClass="form-control" placeholder="hebergement"
-					path="hebergement">demi pension
-					<option  cssClass="form-control" placeholder="hebergement"
-					path="hebergement">pension complete
+					<option cssClass="form-control" placeholder="hebergement"
+						path="hebergement">hébergement seul
+					<option cssClass="form-control" placeholder="hebergement"
+						path="hebergement">petit déjeuner
+					<option cssClass="form-control" placeholder="hebergement"
+						path="hebergement">demi pension
+					<option cssClass="form-control" placeholder="hebergement"
+						path="hebergement">pension complete
 				</form:select>
 			</div>
 		</div>
@@ -124,13 +125,22 @@
 		<div class="form-group">
 			<form:label cssClass="col-sm-2 control-label" path="statut">Statut</form:label>
 			<div class="col-sm-8">
-				<form:select cssClass="form-control" placeholder="statut" path="statut">
+				<form:select cssClass="form-control" placeholder="statut"
+					path="statut">
 					<OPTION cssClass="form-control" placeholder="statut" path="statut">Ouvert
-					<OPTION cssClass="form-control" placeholder="statut" path="statut" >Clot
+
+
+
+					
+					<OPTION cssClass="form-control" placeholder="statut" path="statut">Clot
+
+
+
+					
 				</form:select>
 			</div>
 		</div>
-		
+
 		<div class="form-group">
 			<form:label cssClass="col-sm-2 control-label" path="prixPublic">prixPublic</form:label>
 			<div class="col-sm-8">
@@ -138,7 +148,7 @@
 					path="prixPublic" />
 			</div>
 		</div>
-		
+
 		<div class="form-group">
 			<form:label cssClass="col-sm-2 control-label" path="prixBoV">prixBoV</form:label>
 			<div class="col-sm-8">
@@ -146,15 +156,6 @@
 					path="prixBoV" />
 			</div>
 		</div>
-
-<div class="form-group">
-			<form:label cssClass="col-sm-2 control-label" path="photoOff">Image</form:label>
-			<div class="col-sm-8">
-				<input type="file" name="photoOff" id="photoOff"/><br/><br/>
-			</div>
-		</div>
-
-
 
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-8">
