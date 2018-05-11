@@ -9,6 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -57,7 +58,9 @@ public class Offre implements Serializable {
 	private List<Reservation> listeRes;
 
 	// Transfo assos avec vol
-	@ManyToMany
+
+	@ManyToMany(fetch = FetchType.EAGER)
+
 	@JoinTable(name = "offre_vol", joinColumns = @JoinColumn(name = "off_id", referencedColumnName = "id_off"), inverseJoinColumns = @JoinColumn(name = "v_id", referencedColumnName = "id_v"))
 	private List<Vol> listeVol;
 
