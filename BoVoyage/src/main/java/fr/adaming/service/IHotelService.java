@@ -12,5 +12,6 @@ public interface IHotelService {
 	public Hotel updateHotel(Hotel h);
 	public List<Hotel> getAllHotel();
 	public Hotel getHotelById(int id);
+	public List<Hotel> gethotelsByOffre(int id);
 	
 }

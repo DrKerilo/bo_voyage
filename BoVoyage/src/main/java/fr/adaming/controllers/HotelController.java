@@ -16,6 +16,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,6 +24,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import fr.adaming.model.Hotel;
+import fr.adaming.model.Vol;
 import fr.adaming.service.IHotelService;
 
 @Controller
@@ -133,7 +135,15 @@ public class HotelController {
 	}
 	
 	
-	
+	// AFFICHE LISTE DES HOTELS PAR OFFRE
+		@RequestMapping(value = "/listeHOffre/{pIdO}", method = RequestMethod.GET)
+		public ModelAndView afficheListe(@PathVariable("pIdO") int id) {
+			// appel de la méthode service pour récupérer la liste
+			List<Hotel> listeHotelOff = hotelService.gethotelsByOffre(id);
+
+			return new ModelAndView("listeHotelOffre", "listeHotelsOff", listeHotelOff);
+		}
+
 	
 	
 	

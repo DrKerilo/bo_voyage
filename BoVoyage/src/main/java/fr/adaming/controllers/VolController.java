@@ -79,8 +79,8 @@ public class VolController {
 
 
 	// AFFICHE LISTE PAR OFFRE
-	@RequestMapping(value = "/listeVOffre", method = RequestMethod.GET)
-	public ModelAndView afficheListe() {
+	@RequestMapping(value = "/listeVOffre/{pIdO}", method = RequestMethod.GET)
+	public ModelAndView afficheListe(@PathVariable("pIdO") int id) {
 		// appel de la méthode service pour récupérer la liste
 		List<Vol> listeVolOff = volServ.getvolsByOffre(id);
 

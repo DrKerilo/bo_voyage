@@ -14,6 +14,7 @@ import org.springframework.security.crypto.codec.Base64;
 import org.springframework.stereotype.Repository;
 
 import fr.adaming.model.Hotel;
+import fr.adaming.model.Vol;
 
 @Repository
 public class HotelDaoImpl implements IHotelDao {
@@ -38,7 +39,7 @@ public class HotelDaoImpl implements IHotelDao {
 	@Override
 	public Hotel updateHotel(Hotel h) {
 		em.merge(h);
-		return h;
+		return h; 
 	}
 
 	@Override
@@ -55,4 +56,23 @@ public class HotelDaoImpl implements IHotelDao {
 		return em.find(Hotel.class, id);
 	}
 
+	@Override
+	public List<Hotel> gethotelsByOffre(int id) {
+		// requete sql
+				String req="SELECT * FROM hotels h, offre_hotel oh, offres o "
+						+ "WHERE o.id_off=oh.off_id "
+						+ "AND oh.h_id=h.id_h "
+						+ "AND o.id_off=?";
+				
+				// creation d'un query pour envoyer la requete
+				Query query= em.createNativeQuery(req, Vol.class);
+			
+				//passage des parametres
+				query.setParameter(1, id);
+						
+				// envoyer la requete et récupérer le résultat
+		return query.getResultList();
+
+			
+			}
 }

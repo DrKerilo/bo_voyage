@@ -38,13 +38,18 @@
 		<div class="form-group">
 			<form:label cssClass="col-sm-2 control-label" path="formule">Formule</form:label>
 			<div class="col-sm-8">
-				<SELECT cssClass="form-control" placeholder="formule" path="formule">
-					<OPTION>Avion
-					<OPTION>Hotel
-					<OPTION>Avion + Hotel
-					<OPTION>Avion + Voiture
-					<OPTION>Avion + Hotel + Voiture
-				</SELECT>
+				<form:select cssClass="form-control" placeholder="formule" path="formule">
+					<OPTION  cssClass="form-control" placeholder="formule"
+					path="formule">Avion
+					<OPTION cssClass="form-control" placeholder="formule"
+					path="formule">Hotel
+					<OPTION cssClass="form-control" placeholder="formule"
+					path="formule">Avion + Hotel
+					<OPTION cssClass="form-control" placeholder="formule"
+					path="formule">Avion + Voiture
+					<OPTION cssClass="form-control" placeholder="formule"
+					path="formule">Avion + Hotel + Voiture
+				</form:select>
 			</div>
 		</div>
 
@@ -77,13 +82,17 @@
 		<div class="form-group">
 			<form:label cssClass="col-sm-2 control-label" path="hebergement">Hebergement</form:label>
 			<div class="col-sm-8">
-				<SELECT cssClass="form-control" placeholder="hebergement"
+				<form:select cssClass="form-control" placeholder="hebergement"
 					path="hebergement">
-					<OPTION>hébergement seul
-					<OPTION>petit déjeuner
-					<OPTION>demi pension
-					<OPTION>pension complete
-				</SELECT>
+					<option  cssClass="form-control" placeholder="hebergement"
+					path="hebergement">hébergement seul
+					<option  cssClass="form-control" placeholder="hebergement"
+					path="hebergement">petit déjeuner
+					<option  cssClass="form-control" placeholder="hebergement"
+					path="hebergement">demi pension
+					<option  cssClass="form-control" placeholder="hebergement"
+					path="hebergement">pension complete
+				</form:select>
 			</div>
 		</div>
 
@@ -123,10 +132,10 @@
 		<div class="form-group">
 			<form:label cssClass="col-sm-2 control-label" path="statut">Statut</form:label>
 			<div class="col-sm-8">
-				<SELECT cssClass="form-control" placeholder="statut" path="statut">
-					<OPTION>Ouvert
-					<OPTION>Clot
-				</SELECT>
+				<form:select cssClass="form-control" placeholder="statut" path="statut">
+					<OPTION cssClass="form-control" placeholder="statut" path="statut">Ouvert
+					<OPTION cssClass="form-control" placeholder="statut" path="statut" >Clot
+				</form:select>
 			</div>
 		</div>
 		

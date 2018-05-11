@@ -77,13 +77,13 @@
 					<td>${o.reference}</td>
 					<td>${o.dateDep}</td>
 					<td>${o.dateRet}</td>
-					<td><a href="${pageContext.request.contextPath}/agCTRL/listeVOffre/" ressource?attribut=${o.id}>Liste des vols</a></td>
+					<td><a href="${pageContext.request.contextPath}/agCTRL/listeVOffre/${o.id}">Liste des vols</a></td>
 					<td>${o.nbPlacesDispo}</td>
 					<td>${o.statut}</td>
 					<td>${o.prixPublic}</td>
 					<td>${o.prixBoV}</td>
 					<td><a
-						href="${pageContext.request.contextPath}/agCTRL/listeH/">Liste des hotels</a></td>
+						href="${pageContext.request.contextPath}/agCTRL/listeHOffre/${o.id}">Liste des hotels</a></td>
 					<td>${o.photoOff}</td>
 					
 					<td><a

@@ -44,4 +44,10 @@ public class HotelServiceImpl implements IHotelService {
 		
 		return hDao.getHotelById(id);
 	}
+
+	@Override
+	public List<Hotel> gethotelsByOffre(int id) {
+		
+		return hDao.gethotelsByOffre(id);
+	}
 }
