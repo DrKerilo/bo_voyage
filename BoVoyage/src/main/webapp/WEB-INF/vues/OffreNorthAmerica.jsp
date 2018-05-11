@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Europe</title>
+<title>Amerique Nord</title>
 <!-- pour utiliser jquery js-->
 <script type="text/javascript"
 	src="<c:url value='/resources/js/jquery-3.3.1.js'/>"></script>

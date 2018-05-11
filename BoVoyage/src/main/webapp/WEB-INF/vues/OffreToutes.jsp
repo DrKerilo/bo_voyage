@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Europe</title>
+<title>Monde</title>
 <!-- pour utiliser jquery js-->
 <script type="text/javascript"
 	src="<c:url value='/resources/js/jquery-3.3.1.js'/>"></script>
@@ -37,8 +37,7 @@
 <body>
 
 
-	<h1 style="color: red; text-align: center">Liste des Offres
-		d'Africa du Nord</h1>
+	<h1 style="color: red; text-align: center">Toutes nos Offres</h1>
 
 	<br />
 	<!-- 	<div align="center"> -->
