@@ -186,7 +186,7 @@ public class ClientCtrl {
 	// Méthode rechercher par id
 	@RequestMapping(value = "/afficheRechClient", method = RequestMethod.GET)
 	public ModelAndView afficheFormRech() {
-		return new ModelAndView("accueilClient", "clRech", new Client());
+		return new ModelAndView("rechClient", "clRech", new Client());
 	}
 
 	@RequestMapping(value = "/soumettreRechClient", method = RequestMethod.POST)
