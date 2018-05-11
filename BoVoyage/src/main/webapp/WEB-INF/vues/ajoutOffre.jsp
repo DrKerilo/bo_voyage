@@ -150,10 +150,11 @@
 <div class="form-group">
 			<form:label cssClass="col-sm-2 control-label" path="photoOff">Image</form:label>
 			<div class="col-sm-8">
-				<form:input cssClass="form-control" placeholder="photo"
-					path="prixBoV" />
+				<input type="file" name="photoOff" id="photoOff"/><br/><br/>
 			</div>
 		</div>
+
+
 
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-8">

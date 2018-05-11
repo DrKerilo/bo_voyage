@@ -201,7 +201,7 @@
 			<version>4.11</version>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<!-- ===== Librairies de génération de PDF et Mail ===== -->
 
 		<!-- https://mvnrepository.com/artifact/com.itextpdf/itextpdf -->
@@ -224,11 +224,15 @@
 			<artifactId>activation</artifactId>
 			<version>1.1</version>
 		</dependency>
-		
+
 		<!-- ===== Librairies de gestion des images ===== -->
-		
-		<!-- TODO -->
-		
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.3.1</version>
+		</dependency>
+
+
 	</dependencies>
 
 	<!-- Forcer Maven à compiler avec Java 8 (par défaut J2SE-1.5 qui est Java 
