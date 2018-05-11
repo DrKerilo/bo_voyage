@@ -1,5 +1,7 @@
 package fr.adaming.service;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -12,41 +14,112 @@ import fr.adaming.model.Offre;
 
 @Service("offreservice")
 @Transactional
-public class OffreServiceImpl implements IOffreService{
+public class OffreServiceImpl implements IOffreService {
 
-	//transfo UML en java
+	// transfo UML en java
 	@Autowired
 	private IOffreDao offre;
-	
-	
+
 	@Override
 	public List<Offre> getAlloffres() {
-		
+
 		return offre.getAlloffres();
 	}
 
 	@Override
 	public Offre addOffre(Offre off) {
-		
+
 		return offre.addOffre(off);
 	}
 
 	@Override
 	public Offre updateOffre(Offre off) {
-		
+
 		return offre.updateOffre(off);
 	}
 
 	@Override
 	public int deleteOffre(Offre off) {
-		
+
 		return offre.deleteOffre(off);
 	}
 
 	@Override
 	public Offre getOffrebyId(Offre off) {
-		
+
 		return offre.getOffrebyId(off);
+	}
+
+	@Override
+	public List<Offre> getAlloffresNorthAmerica() {
+		List<Offre> liste = getAlloffres();
+		List<Offre> listeNA = new ArrayList<Offre>();
+		for (int i = 0; i < liste.size(); i++) {
+			if (liste.get(i).getDestination().getContinent().equals("North America")) {
+				listeNA.add(liste.get(i));
+			}
+		}
+		return listeNA;
+	}
+
+	@Override
+	public List<Offre> getAlloffresSouthAmerica() {
+		List<Offre> liste = getAlloffres();
+		List<Offre> listeSA = new ArrayList<Offre>();
+		for (int i = 0; i < liste.size(); i++) {
+			if (liste.get(i).getDestination().getContinent().equals("South America")) {
+				listeSA.add(liste.get(i));
+			}
+		}
+		return listeSA;
+	}
+
+	@Override
+	public List<Offre> getAlloffresAfrica() {
+		List<Offre> liste = getAlloffres();
+		List<Offre> listeAfr = new ArrayList<Offre>();
+		for (int i = 0; i < liste.size(); i++) {
+			if (liste.get(i).getDestination().getContinent().equals("Africa")) {
+				listeAfr.add(liste.get(i));
+			}
+		}
+		return listeAfr;
+	}
+
+	@Override
+	public List<Offre> getAlloffresEurope() {
+		List<Offre> liste = getAlloffres();
+		List<Offre> listeEur = new ArrayList<Offre>();
+		for (int i = 0; i < liste.size(); i++) {
+			if (liste.get(i).getDestination().getContinent().equals("Europe")) {
+				listeEur.add(liste.get(i));
+			}
+		}
+		return listeEur;
+	}
+
+	@Override
+	public List<Offre> getAlloffresNorthAfrica() {
+		List<Offre> liste = getAlloffres();
+		List<Offre> listeNAfr = new ArrayList<Offre>();
+		for (int i = 0; i < liste.size(); i++) {
+			if (liste.get(i).getDestination().getContinent().equals("North Africa")) {
+				listeNAfr.add(liste.get(i));
+			}
+		}
+		return listeNAfr;
+	}
+
+	@Override
+	public List<Offre> getAlloffresAsia() {
+		List<Offre> liste = getAlloffres();
+		List<Offre> listeAs = new ArrayList<Offre>();
+		for (int i = 0; i < liste.size(); i++) {
+			if (liste.get(i).getDestination().getContinent().equals("Asia")) {
+				listeAs.add(liste.get(i));
+			}
+		}
+		return listeAs;
 	}
 
 }

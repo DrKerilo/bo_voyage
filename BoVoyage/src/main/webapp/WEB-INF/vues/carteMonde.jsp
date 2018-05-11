@@ -29,7 +29,11 @@
 </head>
 <body>
 
-	<h3>Quelle partie du monde voulez-vous visiter aujhourd'hui?</h3>
+<div>
+	<h3>Quelle partie du monde voulez-vous visiter aujhourd'hui? - Toutes nos offres, 
+			<a href="${pageContext.request.contextPath}/carteCTRL/listeOffes" target="_blank"> ICI</a> </h3>
+
+</div>
 
 	<div class="field-tip">
 		<div>
@@ -37,30 +41,43 @@
 			src="<c:url value='/resources/images/Continents_of_the_World.jpg'/>"
 			alt="" />
 		</div>
-				<img id="North_America"src="<c:url value='/resources/images/marker.png'/>" alt=""
+		
+		<a href="${pageContext.request.contextPath}/carteCTRL/listeNorthAmerica" target="_blank">
+		<img id="North_America" class="marker" src="<c:url value='/resources/images/marker.png'/>" alt=""
 				style="height: 30px; width: 30px;" title="North America" />
-				
-		<img id="South_America"src="<c:url value='/resources/images/marker.png'/>" alt=""
+		</a>	
+		
+		<a href="${pageContext.request.contextPath}/carteCTRL/listeSouthAmerica" target="_blank">
+		<img id="South_America" src="<c:url value='/resources/images/marker.png'/>" alt=""
 				style="height: 30px; width: 30px;"  title="South America"/>
-				
-		<img id="Europe"src="<c:url value='/resources/images/marker.png'/>" alt=""
+		</a>
+		
+		<a href="${pageContext.request.contextPath}/carteCTRL/listeEurope" target="_blank">
+		<img id="Europe" src="<c:url value='/resources/images/marker.png'/>" alt=""
 				style="height: 30px; width: 30px;" title="Europe" />
-				
+		</a>	
+		
+		<a href="${pageContext.request.contextPath}/carteCTRL/listeAfrica" target="_blank">
 		<img id="Africa" src="<c:url value='/resources/images/marker.png'/>" alt=""
 				style="height: 30px; width: 30px;"  title="Africa"/>
+		</a>	
+			
+		<a href="${pageContext.request.contextPath}/carteCTRL/listeNorthAfrica" target="_blank">
 		<img id="AfricaN" src="<c:url value='/resources/images/marker.png'/>" alt=""
 				style="height: 30px; width: 30px;" title="North Africa"/>
-				
+		</a>
+		
+		<a href="${pageContext.request.contextPath}/carteCTRL/listeAsia" target="_blank">
 		<img id="Asia" src="<c:url value='/resources/images/marker.png'/>" alt=""
 				style="height: 30px; width: 30px;" title="Asia"/>
+		</a>
 		
 	</div>
 
 
-
 	<script>
-		// on click go to page liste offre
-		
+		// on click go to page liste offre par pays 
+		// comment on peut passer le continent comme argument 
 	</script>
 
 </body>

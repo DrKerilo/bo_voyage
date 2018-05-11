@@ -15,5 +15,17 @@ public interface IOffreService {
 	public int deleteOffre(Offre off);
 
 	public Offre getOffrebyId(Offre off);
-	
+
+	public List<Offre> getAlloffresNorthAmerica();
+
+	public List<Offre> getAlloffresSouthAmerica();
+
+	public List<Offre> getAlloffresEurope();
+
+	List<Offre> getAlloffresAfrica();
+
+	List<Offre> getAlloffresAsia();
+
+	List<Offre> getAlloffresNorthAfrica();
+
 }
