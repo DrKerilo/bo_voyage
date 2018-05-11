@@ -39,6 +39,7 @@
 
 	<h1 style="color: red; text-align: center">Toutes nos Offres</h1>
 
+	<h3 style="color: green; text-align: center">Cliquez pour les details</h3>
 	<br />
 	<!-- 	<div align="center"> -->
 
@@ -96,8 +97,8 @@
 			</div>
 			<div class="col-md-4">
 				<c:forEach begin="${(fn:length(listeToutes)/3) + 1}"
-					end="${(fn:length(listeToutes)/3)*2}" var="ctr" items="${listeToutes}"
-					varStatus="loop">
+					end="${(fn:length(listeToutes)/3)*2}" var="ctr"
+					items="${listeToutes}" varStatus="loop">
 					<div class=" borderexample">
 						<a href="${pageContext.request.contextPath}/OffreCTRL/${ctr.id}"
 							target="_blank" style="text-decoration: none"> ID : ${ctr.id}

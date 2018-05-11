@@ -40,6 +40,7 @@
 	<h1 style="color: red; text-align: center">Liste des Offres
 		d'Amerique du Nord</h1>
 
+	<h3 style="color: green; text-align: center">Cliquez pour les details</h3>
 	<br />
 	<!-- 	<div align="center"> -->
 
