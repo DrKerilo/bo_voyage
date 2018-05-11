@@ -78,7 +78,7 @@
 					<td>${res.client.id}</td>
 					<td>${res.offre.id}</td>
 					<td>${res.compte.id}</td>
-					<td><a href="<c:url value='/clientCTRL/supLink/${res.id}'/>" data-confirm="Etes-vous certain de vouloir supprimer?">annuler</a></td>
+					<td><a href="<c:url value='/clientCTRL/supLinkResa/${res.id}'/>" data-confirm="Etes-vous certain de vouloir supprimer?">annuler</a></td>
 				</tr>
 
 			</c:forEach>

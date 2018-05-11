@@ -95,7 +95,7 @@ public class ReservationCtrl {
 	// -------------------------------------------------------------------------------------------
 
 	// Fonctionnalité modifier avec un lien
-	@RequestMapping(value = "/modifLink", method = RequestMethod.GET)
+	@RequestMapping(value = "/modifLinkResa", method = RequestMethod.GET)
 	public String modifAvecLien(Model model, @RequestParam("pId") int id) {
 
 		Reservation resIn = new Reservation();
@@ -159,7 +159,7 @@ public class ReservationCtrl {
 	// -------------------------------------------------------------------------------------------
 
 	// Fonctionnalité supprimer avec un lien du côté de l'agent
-	@RequestMapping(value = "/supLink/{pId}", method = RequestMethod.GET)
+	@RequestMapping(value = "/supLinkResa/{pId}", method = RequestMethod.GET)
 	public String supAvecLien(Model model, @PathVariable("pId") int id) {
 
 		Reservation resIn = new Reservation();
