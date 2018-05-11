@@ -186,8 +186,8 @@ public class ReservationCtrl {
 			// récup la nouvelle liste
 			List<Reservation> liste = resService.getAllRes();
 			// mettre à jour la liste dans la page d'accueil
-			model.addAttribute("listeResasByCl", liste);
-			return "listeResaClient";
+			model.addAttribute("listeResaClient", liste);
+			return "accueilClient";
 		}
 
 	// -------------------------------------------------------------------------------------------

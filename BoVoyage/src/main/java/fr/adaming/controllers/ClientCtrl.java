@@ -121,22 +121,22 @@ public class ClientCtrl {
 	}
 	
 	// -------------------------------------------------------------------------------------------
-				//Quand le client est connecté et qu'il souhaite modifier son compte
+			//Quand le client est connecté et qu'il souhaite modifier son compte
 
-		// Fonctionnalité modifier avec un lien
-		@RequestMapping(value = "/modifLink2", method = RequestMethod.GET)
-		public String modifAvecLien2(Model model, @RequestParam("pId") int id) {
-
-			Client clIn = new Client();
-			clIn.setId(id);
-			// appel de la méthode
-			Client clOut = clService.getClById(clIn);
-
-			// mettre à jour la liste dans la page d'accueil
-			model.addAttribute("clModif2", clOut);
-			return "modifClient2";
-
-		}
+//		// Fonctionnalité modifier avec un lien
+//		@RequestMapping(value = "/modifLink2", method = RequestMethod.GET)
+//		public String modifAvecLien2(Model model, @RequestParam("pMail") String mail) {
+//
+//			Client clIn = new Client();
+//			clIn.setMail(mail);
+//			// appel de la méthode
+//			Client clOut = clService.getClById(clIn);
+//
+//			// mettre à jour la liste dans la page d'accueil
+//			model.addAttribute("clModif2", clOut);
+//			return "modifClient2";
+//
+//		}
 		
 		// Méthode modifier
 		@RequestMapping(value = "/afficheModifClient2", method = RequestMethod.GET)
@@ -153,7 +153,7 @@ public class ClientCtrl {
 
 			if (verif != null) {
 				rda.addFlashAttribute("msg", "Votre compte a été modifié avec succes !");
-				return "redirect:afficheModifClient2";
+				return "redirect:listeResaClient";
 
 			} else {
 				rda.addFlashAttribute("msg", "La modification de votre compte a échoué !");
