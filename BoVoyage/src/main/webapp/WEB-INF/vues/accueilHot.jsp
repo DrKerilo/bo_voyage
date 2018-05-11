@@ -8,37 +8,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Page accueil</title>
-<!-- Spécifier le chemin du fichier Bootstrap.css href : pageContext.request.contextPath pour récupérer la première partie du chemin http:// jusqu'au nom du projet-->
+
+<!-- Spécifier le chemin du fichier bootstrap.css -->
 <link rel="stylesheet"
-	href="<c:url value='/resources/css/bootstrap.css'/>" />
+	href="<c:url value='/resources/css/bootstrap.css' />" />
+<script type="text/javascript"
+	src="<c:url value='/resources/js/jquery-3.3.1.js'/>"></script>
+<script type="text/javascript"
+	src="<c:url value='/resources/js/bootstrap.js'/>"></script>
+
+
 </head>
+
 <body>
 
-	<!--  -->
-	<nav class="navbar navbar-inverse">
-		<ul class="nav nav-pills">
-			<li role="presentation"><a
-				href="${pageContext.request.contextPath}/hCTRL/listeHotels">Accueil</a></li>
-			<li role="presentation"><a
-				href="<c:url value='/eCTRL/affFormAjout'/>">Ajouter</a></li>
-			<li role="presentation"><a
-				href="${pageContext.request.contextPath}/eCTRL/modifForm">Modifier</a></li>
-			<li role="presentation"><a
-				href="${pageContext.request.contextPath}/eCTRL/suppForm">Supprimer</a></li>
-			<li role="presentation"><a
-				href="<c:url value='/eCTRL/searchForm'/>">Rechercher</a></li>
-			<li role="presentation"><a
-				href="<c:url value='/j_spring_security_logout'/>">Se déconnecter</a></li>
-		</ul>
-	</nav>
+	<%@include file="/resources/template/header.html"%>
 
-
-
-
-
-
-
-	<hr />
 	<h1 style="color: pink; text-align: center">Liste des hotels</h1>
 	<div align="center">
 		<table class="table table-bordered">

@@ -2,11 +2,11 @@
 	pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<!DOCTYPE html >
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Page Ajouter Hotel</title>
+<title>Page de modification</title>
 
 <!-- Spécifier le chemin du fichier bootstrap.css -->
 <link rel="stylesheet"
@@ -16,17 +16,30 @@
 <script type="text/javascript"
 	src="<c:url value='/resources/js/bootstrap.js'/>"></script>
 
+
 </head>
 
 <body>
 
 	<%@include file="/resources/template/header.html"%>
 	
-	<h1 style="color: red; text-align: center">FORMULAIRE D'AJOUT D'UN
+	<h1 style="color: red; text-align: center">MODIFIER LES INFOS D'UN
 		HOTEL</h1>
 	<!-- Dans action on doit mettre l'URI de la méthode (model Attribute peut être remplacé par command Name-->
-	<form:form class="form-horizontal" method="POST" action="soumAjoutHot"
-		modelAttribute="hotel">
+	<form:form class="form-horizontal" method="POST" action="soumModifHot"
+		modelAttribute="hModif">
+
+
+
+		<div class="form-group">
+			<form:label cssClass="col-sm-2 control-label" path="id">Id de l'hôtel à modifier</form:label>
+			<div class="col-sm-8">
+				<form:input cssClass="form-control" placeholder="id" path="id" />
+			</div>
+		</div>
+
+
+
 		<div class="form-group">
 			<form:label cssClass="col-sm-2 control-label" path="nom">Nom de l'hotel</form:label>
 			<div class="col-sm-8">
@@ -116,10 +129,12 @@
 
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-8">
-				<button type="submit" class="btn btn-default">Ajouter</button>
+				<button type="submit" class="btn btn-default">MODIFIER</button>
 			</div>
 		</div>
 	</form:form>
+
+
 
 </body>
 </html>

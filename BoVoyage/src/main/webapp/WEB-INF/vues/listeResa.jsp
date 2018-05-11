@@ -16,20 +16,18 @@
 <!-- Spécifier le chemin du fichier bootstrap.css -->
 <link rel="stylesheet"
 	href="<c:url value='/resources/css/bootstrap.css' />" />
+<script type="text/javascript"
+	src="<c:url value='/resources/js/jquery-3.3.1.js'/>"></script>
+<script type="text/javascript"
+	src="<c:url value='/resources/js/bootstrap.js'/>"></script>
+
 
 </head>
 
-
 <body>
 
-	<nav class="navbar navbar-inverse">
-		<ul class="nav nav-tabs">
-			<li><a href="${pageContext.request.contextPath}/resaCTRL/listeResa">Liste</a></li>
-			<li><a href="<c:url value='/resaCTRL/afficheAjoutResa'/>">Ajouter</a></li>
-			<li><a href="<c:url value='/resaCTRL/afficheModifResa'/>">Modifier</a></li>
-			<li><a href="<c:url value='/resaCTRL/afficheRechResa'/>">Rechercher</a></li>
-		</ul>
-	</nav>
+	<%@include file="/resources/template/header.html"%>
+
 
 	<h1 style="color: greenyellow; text-align: center">Liste des
 		réservations</h1>

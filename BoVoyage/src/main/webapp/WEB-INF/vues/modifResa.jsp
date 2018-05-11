@@ -13,21 +13,21 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Modifier une réservation</title>
+
+<!-- Spécifier le chemin du fichier bootstrap.css -->
 <link rel="stylesheet"
 	href="<c:url value='/resources/css/bootstrap.css' />" />
-</head>
+<script type="text/javascript"
+	src="<c:url value='/resources/js/jquery-3.3.1.js'/>"></script>
+<script type="text/javascript"
+	src="<c:url value='/resources/js/bootstrap.js'/>"></script>
 
+
+</head>
 
 <body>
 
-	<nav class="navbar navbar-inverse">
-		<ul class="nav nav-tabs">
-			<li><a href="${pageContext.request.contextPath}/resaCTRL/listeResa">Liste</a></li>
-			<li><a href="<c:url value='/resaCTRL/afficheAjoutResa'/>">Ajouter</a></li>
-			<li><a href="<c:url value='/resaCTRL/afficheModifResa'/>">Modifier</a></li>
-			<li><a href="<c:url value='/resaCTRL/afficheRechResa'/>">Rechercher</a></li>
-		</ul>
-	</nav>
+	<%@include file="/resources/template/header.html"%>
 
 	<form:form cssClass="form-horizontal" action="soumettreModifResa"
 		method="post" modelAttribute="resaModif">

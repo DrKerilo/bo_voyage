@@ -1,0 +1,13 @@
+div {
+   display: inline-block;
+   position: relative;
+   z-index : 1;
+}
+div img { display: block; }
+
+#North_America 	{ position: absolute; z-index: 1; top: 150px; left: 170px; }
+#South_America 	{ position: absolute; z-index: 1; top: 400px; left: 300px; }
+#Europe 		{ position: absolute; z-index: 1; top: 120px; left: 600px; }
+#Africa			{ position: absolute; z-index: 1; top: 350px; left: 650px; }
+#AfricaN 		{ position: absolute; z-index: 1; top: 220px; left: 580px; }
+#Asia 			{ position: absolute; z-index: 1; top: 130px; left: 880px; }

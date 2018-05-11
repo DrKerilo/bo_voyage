@@ -38,7 +38,7 @@ public class ClientCtrl {
 	public void setClService(IClientService clService) {
 		this.clService = clService;
 	}
-	
+
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
@@ -79,86 +79,86 @@ public class ClientCtrl {
 		}
 
 	}
-	
+
 	// -------------------------------------------------------------------------------------------
 
-		// Fonctionnalité modifier avec un lien
-		@RequestMapping(value = "/modifLink", method = RequestMethod.GET)
-		public String modifAvecLien(Model model, @RequestParam("pId") int id) {
+	// Fonctionnalité modifier avec un lien
+	@RequestMapping(value = "/modifLink", method = RequestMethod.GET)
+	public String modifAvecLien(Model model, @RequestParam("pId") int id) {
 
-			Client clIn = new Client();
-			clIn.setId(id);
-			// appel de la méthode
-			Client clOut = clService.getClById(clIn);
+		Client clIn = new Client();
+		clIn.setId(id);
+		// appel de la méthode
+		Client clOut = clService.getClById(clIn);
 
-			// mettre à jour la liste dans la page d'accueil
-			model.addAttribute("clModif", clOut);
-			return "modifClient";
+		// mettre à jour la liste dans la page d'accueil
+		model.addAttribute("clModif", clOut);
+		return "modifClient";
 
+	}
+
+	// Méthode modifier
+	@RequestMapping(value = "/afficheModifClient", method = RequestMethod.GET)
+	public String afficheFormModif(Model model) {
+		model.addAttribute("clModif", new Client());
+		String idMod = "modifClient";
+		return idMod;
+	}
+
+	@RequestMapping(value = "/soumettreModifClient", method = RequestMethod.POST)
+	public String soumettreFormModif(ModelMap model, @ModelAttribute("clModif") Client cl) {
+		// appel de la méthode
+		Client verif = clService.updateCl(cl);
+
+		if (verif != null) {
+			return "redirect:listeClient";
+
+		} else {
+			return "redirect:afficheModifClient";
 		}
 
-		// Méthode modifier
-		@RequestMapping(value = "/afficheModifClient", method = RequestMethod.GET)
-		public String afficheFormModif(Model model) {
-			model.addAttribute("clModif", new Client());
-			String idMod = "modifClient";
-			return idMod;
-		}
+	}
 
-		@RequestMapping(value = "/soumettreModifClient", method = RequestMethod.POST)
-		public String soumettreFormModif(ModelMap model, @ModelAttribute("clModif") Client cl) {
-			// appel de la méthode
-			Client verif = clService.updateCl(cl);
-
-			if (verif != null) {
-				return "redirect:listeClient";
-
-			} else {
-				return "redirect:afficheModifClient";
-			}
-
-		}
-	
 	// -------------------------------------------------------------------------------------------
 
-		// Fonctionnalité supprimer avec un lien
-		@RequestMapping(value = "/supLink/{pId}", method = RequestMethod.GET)
-		public String supAvecLien(Model model, @PathVariable("pId") int id) {
+	// Fonctionnalité supprimer avec un lien
+	@RequestMapping(value = "/supLink/{pId}", method = RequestMethod.GET)
+	public String supAvecLien(Model model, @PathVariable("pId") int id) {
 
-			Client clIn = new Client();
-			clIn.setId(id);
-			// appel de la méthode
-			int verif = clService.deleteCl(clIn);
+		Client clIn = new Client();
+		clIn.setId(id);
+		// appel de la méthode
+		int verif = clService.deleteCl(clIn);
 
-			// récup la nouvelle liste
-			List<Client> liste = clService.getAllCl();
-			// mettre à jour la liste dans la page d'accueil
-			model.addAttribute("listeClients", liste);
-			return "listeClient";
+		// récup la nouvelle liste
+		List<Client> liste = clService.getAllCl();
+		// mettre à jour la liste dans la page d'accueil
+		model.addAttribute("listeClients", liste);
+		return "listeClient";
 
+	}
+
+	// -------------------------------------------------------------------------------------------
+
+	// Méthode rechercher par id
+	@RequestMapping(value = "/afficheRechClient", method = RequestMethod.GET)
+	public ModelAndView afficheFormRech() {
+		return new ModelAndView("accueilClient", "clRech", new Client());
+	}
+
+	@RequestMapping(value = "/soumettreRechClient", method = RequestMethod.POST)
+	public String soumettreFormRech(ModelMap model, @ModelAttribute("clRech") Client cl) {
+		// appel de la méthode
+		Client clRech = clService.getClById(cl);
+
+		if (clRech != null) {
+			model.addAttribute("clFind", clRech);
+			return "accueilClient";
+		} else {
+			rda.addFlashAttribute("msg", "Le client n'existe pas !");
+			return "redirect:afficheRechClient";
 		}
-		
-		// -------------------------------------------------------------------------------------------
 
-		// Méthode rechercher par id
-		@RequestMapping(value = "/afficheRechClient", method = RequestMethod.GET)
-		public ModelAndView afficheFormRech() {
-			return new ModelAndView("rechClient", "clRech", new Client());
-		}
-
-		@RequestMapping(value = "/soumettreRechClient", method = RequestMethod.POST)
-		public String soumettreFormRech(ModelMap model, @ModelAttribute("clRech") Client cl) {
-			// appel de la méthode
-			Client clRech = clService.getClById(cl);
-
-			if (clRech != null) {
-				model.addAttribute("clFind", clRech);
-				return "rechClient";
-			} else {
-				rda.addFlashAttribute("msg", "Le client n'existe pas !");
-				return "redirect:afficheRechClient";
-			}
-
-		}
+	}
 
 }

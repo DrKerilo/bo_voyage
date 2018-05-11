@@ -1,0 +1,40 @@
+<nav class="navbar navbar-inverse">
+	<ul class="nav nav-tabs">
+		<li><a href="<c:url value='/resaCTRL/listeResa'/>">Home</a></li>
+		<li class="dropdown">
+          	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Offres<span class="caret"></span></a>
+          		<ul class="dropdown-menu">
+           			<li><a href="<c:url value='/agCTRL/listeO'/>">Liste des offres</a></li>
+           			<li><a href="<c:url value='/agCTRL/affichRecO'/>">Rechercher</a></li>
+           			<li role="separator" class="divider"></li>
+           			<li><a href="<c:url value='/agCTRL/afficheAjoutO'/>">Ajouter</a></li>
+           			<li><a href="<c:url value='/agCTRL/affichModifO'/>">Modifier</a></li>
+           			<li><a href="<c:url value='/agCTRL/afficheSupprO'/>">Supprimer</a></li>
+          		</ul>
+        </li>
+		<li class="dropdown">
+          	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hotels<span class="caret"></span></a>
+          		<ul class="dropdown-menu">
+           			<li><a href="<c:url value='/agCTRL/listeHotels'/>">Liste des hotels</a></li>
+           			<li><a href="<c:url value='/agCTRL/searchHotForm'/>">Rechercher</a></li>
+           			<li role="separator" class="divider"></li>
+           			<li><a href="<c:url value='/agCTRL/affFormAjoutHot'/>">Ajouter</a></li>
+           			<li><a href="<c:url value='/agCTRL/modifFormHot'/>">Modifier</a></li>
+           			<li><a href="<c:url value='/agCTRL/suppHotel'/>">Supprimer</a></li>
+        		</ul>
+       	</li>
+        <li class="dropdown">
+          	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Clients<span class="caret"></span></a>
+          		<ul class="dropdown-menu">
+        			<li><a href="<c:url value='/clientCTRL/listeClient'/>">Liste des clients</a></li>
+           			<li><a href="<c:url value='/clientCTRL/afficheRechClient'/>">Rechercher</a></li>
+           			<li role="separator" class="divider"></li>
+           			<li><a href="<c:url value='/clientCTRL/afficheAjoutClient'/>">Ajouter</a></li>
+           			<li><a href="<c:url value='/clientCTRL/afficheModifClient'/>">Modifier</a></li>
+					<li><a href="<c:url value='/resaCTRL/rechResaByClient'/>">Liste des réservations d'un client</a></li>
+          		</ul>
+        </li>
+		<li><a href="<c:url value='/j_spring_security_logout'/>">Se déconnecter</a></li>
+			
+	</ul>
+</nav>
