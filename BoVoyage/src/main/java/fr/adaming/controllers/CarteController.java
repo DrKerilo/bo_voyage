@@ -33,7 +33,7 @@ public class CarteController {
 	@RequestMapping(value = "/listeSouthAmerica", method = RequestMethod.GET)
 	public ModelAndView affichelisteSouthAmerica() {
 		List<Offre> liste = offreService.getAlloffresSouthAmerica();
-		return new ModelAndView("OffreSouthAmerica", "listeNA", liste);
+		return new ModelAndView("OffreSouthAmerica", "listeSA", liste);
 	}
 
 	@RequestMapping(value = "/listeEurope", method = RequestMethod.GET)
@@ -56,11 +56,11 @@ public class CarteController {
 
 	@RequestMapping(value = "/listeAsia", method = RequestMethod.GET)
 	public ModelAndView affichelisteAsia() {
-		List<Offre> liste = offreService.getAlloffresAfrica();
+		List<Offre> liste = offreService.getAlloffresAsia();
 		return new ModelAndView("OffreAsia", "listeAs", liste);
 	}
 
-	@RequestMapping(value = "/listeOffes", method = RequestMethod.GET)
+	@RequestMapping(value = "/listeOffres", method = RequestMethod.GET)
 	public ModelAndView affichelisteOffres() {
 		List<Offre> liste = offreService.getAlloffres();
 		return new ModelAndView("OffreToutes", "listeToutes", liste);

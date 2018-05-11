@@ -29,7 +29,7 @@
 
 	<nav class="navbar navbar-inverse">
 		<ul class="nav nav-tabs">
-			<li><a href="<c:url value='/clientCTRL/modifLink2'/>">Modifier
+			<li><a href="<c:url value='/clientCTRL/afficheModifClient2'/>">Modifier
 					ses coordonnées</a></li>
 			<li><a href="<c:url value='/clientCTRL/supLink/{cl.id}'/>"
 				data-confirm="Etes-vous certain de vouloir supprimer?">Supprimer
@@ -126,5 +126,8 @@
 		</div>
 
 	</form:form>
+	
+	<h1 style="color: red; text-align: center;">${msg}</h1>
+	
 </body>
 </html>
