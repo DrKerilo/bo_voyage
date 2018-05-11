@@ -94,13 +94,13 @@
 					<td>${oFind.reference}</td>
 					<td>${oFind.dateDep}</td>
 					<td>${oFind.dateRet}</td>
-					<td><a href="${pageContext.request.contextPath}/agCTRL/listeVOffre/" ressource?attribut=${o.id}>Liste des vols</a></td>
+					<td><a href="${pageContext.request.contextPath}/agCTRL/listeVOffre/${o.id}">Liste des vols</a></td>
 					<td>${oFind.nbPlacesDispo}</td>
 					<td>${oFind.statut}</td>
 					<td>${oFind.prixPublic}</td>
 					<td>${oFind.prixBoV}</td>
 					<td><a
-						href="${pageContext.request.contextPath}/agCTRL/listeH/">Liste des hotels</a></td>
+						href="${pageContext.request.contextPath}/agCTRL/listeHOffre/${o.id}">Liste des hotels</a></td>
 					<td>${oFind.photoOff}</td>
 					
 					<td><a
