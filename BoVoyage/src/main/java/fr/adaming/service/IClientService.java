@@ -15,5 +15,7 @@ public interface IClientService {
 	public int deleteCl(Client cl);
 
 	public Client getClById(Client cl);
+	
+	public Client getClByMail(String mail);
 
 }

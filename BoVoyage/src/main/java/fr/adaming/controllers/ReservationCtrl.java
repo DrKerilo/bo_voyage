@@ -2,8 +2,12 @@ package fr.adaming.controllers;
 
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -17,6 +21,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import fr.adaming.model.Client;
 import fr.adaming.model.Reservation;
+import fr.adaming.service.IClientService;
 import fr.adaming.service.IReservationService;
 
 @Controller
@@ -26,12 +31,31 @@ public class ReservationCtrl {
 
 	@Autowired
 	private IReservationService resService;
+	
+	@Autowired
+	private IClientService clService;
 
+	Client client;
 	RedirectAttributes rda;
+	
+	public void init() {
+		//récup le context de spring security
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		
+		//récup l'identifiant du client connecté
+		String mail = auth.getName();
+		
+		//récup toutes les infos du client à partir de la BD
+		client = clService.getClByMail(mail);
+	}
 
 	// setter pour l'injection de dépendance
 	public void setResService(IReservationService resService) {
 		this.resService = resService;
+	}
+
+	public void setClService(IClientService clService) {
+		this.clService = clService;
 	}
 
 	// =================================================================================
@@ -153,7 +177,7 @@ public class ReservationCtrl {
 
 	// -------------------------------------------------------------------------------------------
 
-	// Méthode afficher la liste recherche par client (id)
+	// Méthode afficher la liste recherche par client (id) du côté BackOffice
 	@RequestMapping(value = "/rechResaByClient", method = RequestMethod.GET)
 	public ModelAndView afficheFormRech1() {
 		return new ModelAndView("rechResaByClient", "resaRechCl", new Reservation());
@@ -171,6 +195,16 @@ public class ReservationCtrl {
 			rda.addFlashAttribute("msg", "Fail !");
 			return "redirect:rechResaByClient";
 		}
+
+	}
+	
+	//Méthode afficher directement la liste des résas quand le client se connecte
+	@RequestMapping(value = "/listeResaClient", method = RequestMethod.GET)
+	public ModelAndView afficheListe1() {
+		// appel de la méthode
+		List<Reservation> liste = resService.getResByClient(client);
+
+		return new ModelAndView("accueilClient", "listeResasByCl", liste);
 
 	}
 
