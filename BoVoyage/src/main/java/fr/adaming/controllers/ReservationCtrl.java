@@ -31,23 +31,23 @@ public class ReservationCtrl {
 
 	@Autowired
 	private IReservationService resService;
-	
+
 	@Autowired
 	private IClientService clService;
 
 	Client client;
 	RedirectAttributes rda;
-	
-	public void init() {
-		//récup le context de spring security
+
+	/*public void init() {
+		// récup le context de spring security
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		
-		//récup l'identifiant du client connecté
+
+		// récup l'identifiant du client connecté
 		String mail = auth.getName();
-		
-		//récup toutes les infos du client à partir de la BD
+
+		// récup toutes les infos du client à partir de la BD
 		client = clService.getClByMail(mail);
-	}
+	}*/
 
 	// setter pour l'injection de dépendance
 	public void setResService(IReservationService resService) {
@@ -158,7 +158,7 @@ public class ReservationCtrl {
 
 	// -------------------------------------------------------------------------------------------
 
-	// Fonctionnalité supprimer avec un lien
+	// Fonctionnalité supprimer avec un lien du côté de l'agent
 	@RequestMapping(value = "/supLink/{pId}", method = RequestMethod.GET)
 	public String supAvecLien(Model model, @PathVariable("pId") int id) {
 
@@ -172,8 +172,23 @@ public class ReservationCtrl {
 		// mettre à jour la liste dans la page d'accueil
 		model.addAttribute("listeResas", liste);
 		return "listeResa";
-
 	}
+	
+	// Fonctionnalité supprimer avec un lien dans accueilClient
+		@RequestMapping(value = "/supLink2/{pId}", method = RequestMethod.GET)
+		public String supAvecLien2(Model model, @PathVariable("pId") int id) {
+
+			Reservation resIn = new Reservation();
+			resIn.setId(id);
+			// appel de la méthode
+			int verif = resService.deleteRes(resIn);
+
+			// récup la nouvelle liste
+			List<Reservation> liste = resService.getAllRes();
+			// mettre à jour la liste dans la page d'accueil
+			model.addAttribute("listeResasByCl", liste);
+			return "listeResaClient";
+		}
 
 	// -------------------------------------------------------------------------------------------
 
@@ -197,10 +212,19 @@ public class ReservationCtrl {
 		}
 
 	}
-	
-	//Méthode afficher directement la liste des résas quand le client se connecte
+
+	// Méthode afficher directement la liste des résas quand le client se connecte
 	@RequestMapping(value = "/listeResaClient", method = RequestMethod.GET)
 	public ModelAndView afficheListe1() {
+		// récup le context de spring security
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+
+		// récup l'identifiant du client connecté
+		String mail = auth.getName();
+
+		// récup toutes les infos du client à partir de la BD
+		client = clService.getClByMail(mail);
+		
 		// appel de la méthode
 		List<Reservation> liste = resService.getResByClient(client);
 

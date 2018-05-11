@@ -52,13 +52,11 @@
 		<table class="table table-hover" style="text-align: center;">
 
 			<tr>
-				<th style="text-align: center;">#</th>
 				<th style="text-align: center;">N°dossier</th>
 				<th style="text-align: center;">Etat</th>
 				<th style="text-align: center;">Assurance</th>
 				<th style="text-align: center;">Nb places</th>
 				<th style="text-align: center;">Prix total</th>
-				<th style="text-align: center;">#Client</th>
 				<th style="text-align: center;">#Offre</th>
 				<th style="text-align: center;">#Compte</th>
 				<th style="text-align: center;">Annuler la réservation</th>
@@ -67,16 +65,14 @@
 			<c:forEach var="res" items="${listeResasByCl}">
 
 				<tr>
-					<td>${res.id}</td>
 					<td>${res.numDossier}</td>
 					<td>${res.etat}</td>
 					<td>${res.assurance}</td>
 					<td>${res.nbPlaces}</td>
 					<td>${res.prixRes}</td>
-					<td>${res.client.id}</td>
 					<td>${res.offre.id}</td>
 					<td>${res.compte.id}</td>
-					<td><a href="<c:url value='/resaCTRL/supLink/${res.id}'/>"
+					<td><a href="<c:url value='/resaCTRL/supLink2/${res.id}'/>"
 						data-confirm="Etes-vous certain de vouloir supprimer?"><span
 							class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></td>
 				</tr>
