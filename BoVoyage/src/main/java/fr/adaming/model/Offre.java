@@ -58,16 +58,12 @@ public class Offre implements Serializable {
 
 	// Transfo assos avec vol
 	@ManyToMany
-	@JoinTable(name = "offre_vol", 
-			joinColumns = @JoinColumn(name = "off_id", referencedColumnName = "id_off"), 
-			inverseJoinColumns = @JoinColumn(name = "v_id", referencedColumnName = "id_v"))
+	@JoinTable(name = "offre_vol", joinColumns = @JoinColumn(name = "off_id", referencedColumnName = "id_off"), inverseJoinColumns = @JoinColumn(name = "v_id", referencedColumnName = "id_v"))
 	private List<Vol> listeVol;
 
 	// Transfo assos avec hotel
 	@ManyToMany
-	@JoinTable(name = "offre_hotel", 
-			joinColumns = @JoinColumn(name = "off_id", referencedColumnName = "id_off"), 
-			inverseJoinColumns = @JoinColumn(name = "h_id", referencedColumnName = "id_h"))
+	@JoinTable(name = "offre_hotel", joinColumns = @JoinColumn(name = "off_id", referencedColumnName = "id_off"), inverseJoinColumns = @JoinColumn(name = "h_id", referencedColumnName = "id_h"))
 	private List<Hotel> listeHotel;
 
 	// Constructeurs

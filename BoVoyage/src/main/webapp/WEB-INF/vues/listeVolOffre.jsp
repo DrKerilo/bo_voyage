@@ -45,6 +45,7 @@
 
 		<table class="table table-bordered" style="text-align: center">
 			<tr style="text-align: center">
+				<th>ID de l'offre</th>
 				<th>ID</th>
 				<th>modele de l'avion</th>
 				<th>aeroport de départ</th>
@@ -55,6 +56,7 @@
 			</tr>
 			<c:forEach var="v" items="${listeVolsOff}">
 				<tr>
+					<td>${request.getParameter("attribut")}</td>
 					<td>${v.id}</td>
 					<td>${v.modele}</td>
 					<td>${v.aeroportDep}</td>

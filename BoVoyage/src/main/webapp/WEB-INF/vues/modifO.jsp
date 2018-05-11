@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    pageEncoding="ISO-8859-1"%>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<!DOCTYPE html>
+<!DOCTYPE html >
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Ajout Offre</title>
+<title>Modification Offre</title>
 <!-- pour utiliser bootstrapjs-->
 <script type="text/javascript"
 	src="<c:url value='/resources/js/jquery-3.3.1.js'/>"></script>
@@ -21,11 +21,19 @@
 </head>
 <body>
 
-	<hr />
-	<h1 style="color: red; text-align: center">Ajouter une Offre</h1>
+<hr />
+	<h1 style="color: red; text-align: center">Modifier une Offre</h1>
 
 	<form:form cssClass="form-horizontal" method="POST"
-		action="soumettreAjoutO" modelAttribute="oAjout">
+		action="soumettreModifO" modelAttribute="oModif">
+		<div class="form-group">
+			<form:label cssClass="col-sm-2 control-label" path="id">id</form:label>
+			<div class="col-sm-8">
+				<form:input cssClass="form-control" placeholder="id"
+					path="id" />
+			</div>
+		</div>
+		
 
 		<div class="form-group">
 			<form:label cssClass="col-sm-2 control-label" path="formule">Formule</form:label>
@@ -71,14 +79,10 @@
 			<div class="col-sm-8">
 				<SELECT cssClass="form-control" placeholder="hebergement"
 					path="hebergement">
-					<OPTION  cssClass="form-control" placeholder="hebergement"
-					path="hebergement">hébergement seul
-					<OPTION  cssClass="form-control" placeholder="hebergement"
-					path="hebergement">petit déjeuner
-					<OPTION  cssClass="form-control" placeholder="hebergement"
-					path="hebergement">demi pension
-					<OPTION  cssClass="form-control" placeholder="hebergement"
-					path="hebergement">pension complete
+					<OPTION>hébergement seul
+					<OPTION>petit déjeuner
+					<OPTION>demi pension
+					<OPTION>pension complete
 				</SELECT>
 			</div>
 		</div>
@@ -152,7 +156,7 @@
 
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-8">
-				<button type="submit" class="btn btn-default">Ajouter</button>
+				<button type="submit" class="btn btn-default">Modifier</button>
 			</div>
 		</div>
 	</form:form>
