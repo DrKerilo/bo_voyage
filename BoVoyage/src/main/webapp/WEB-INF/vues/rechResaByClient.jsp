@@ -3,7 +3,7 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
@@ -78,7 +78,10 @@
 					<td>${res.client.id}</td>
 					<td>${res.offre.id}</td>
 					<td>${res.compte.id}</td>
-					<td><a href="<c:url value='/clientCTRL/supLinkResa/${res.id}'/>" data-confirm="Etes-vous certain de vouloir supprimer?">annuler</a></td>
+					<td><a
+						href="<c:url value='/clientCTRL/supLinkResa/${res.id}'/>"
+						data-confirm="Etes-vous certain de vouloir supprimer?"><span
+							class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span></a></td>
 				</tr>
 
 			</c:forEach>
