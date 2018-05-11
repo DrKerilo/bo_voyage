@@ -27,10 +27,10 @@
 	<nav class="navbar navbar-inverse">
 		<ul class="nav nav-tabs">
 			<li><a
-				href="${pageContext.request.contextPath}/resaCTRL/listeResa">Liste</a></li>
-			<li><a href="<c:url value='/resaCTRL/afficheAjoutResa'/>">Ajouter</a></li>
-			<li><a href="<c:url value='/resaCTRL/afficheModifResa'/>">Modifier</a></li>
-			<li><a href="<c:url value='/resaCTRL/afficheRechResa'/>">Rechercher</a></li>
+				href="${pageContext.request.contextPath}/clientCTRL/listeResa">Liste</a></li>
+			<li><a href="<c:url value='/clientCTRL/afficheAjoutResa'/>">Ajouter</a></li>
+			<li><a href="<c:url value='/clientCTRL/afficheModifResa'/>">Modifier</a></li>
+			<li><a href="<c:url value='/clientCTRL/afficheRechResa'/>">Rechercher</a></li>
 		</ul>
 	</nav>
 

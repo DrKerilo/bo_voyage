@@ -72,7 +72,7 @@
 					<td>${res.prixRes}</td>
 					<td>${res.offre.id}</td>
 					<td>${res.compte.id}</td>
-					<td><a href="<c:url value='/resaCTRL/supLink2/${res.id}'/>"
+					<td><a href="<c:url value='/clientCTRL/supLink2/${res.id}'/>"
 						data-confirm="Etes-vous certain de vouloir supprimer?"><span
 							class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></td>
 				</tr>
