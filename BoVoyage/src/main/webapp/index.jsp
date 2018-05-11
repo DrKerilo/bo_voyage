@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%response.sendRedirect("resaCTRL/listeResa"); %>
+<%response.sendRedirect("resaCTRL/accueilClient"); %>
 </body>
 </html>

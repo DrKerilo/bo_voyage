@@ -63,7 +63,8 @@
 					<td>${res.client.id}</td>
 					<td>${res.offre.id}</td>
 					<td>${res.compte.id}</td>
-					<td><a href="<c:url value='/resaCTRL/supLink/${res.id}'/>">Supprimer</a>
+					<td><a href="<c:url value='/resaCTRL/supLink/${res.id}'/>"><span
+							class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
 						| <a href="<c:url value='/resaCTRL/modifLink?pId=${res.id}'/>">Modifier</a></td>
 				</tr>
 

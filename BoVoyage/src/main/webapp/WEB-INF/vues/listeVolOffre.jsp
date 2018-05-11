@@ -22,20 +22,7 @@
 </head>
 <body>
 
-	<nav class="navbar navbar-inverse">
-		<ul class="nav nav-pills">
-			<li role="presentation"><a
-				href="${pageContext.request.contextPath}/agCTRL/listeV">AccueilVol</a></li>
-			<li role="presentation"><a
-				href="${pageContext.request.contextPath}/agCTRL/afficheAjoutV">Ajouter</a></li>
-			<li role="presentation"><a
-				href="${pageContext.request.contextPath}/agCTRL/affichModifV">Modifier</a></li>
-			<li role="presentation"><a
-				href="${pageContext.request.contextPath}/agCTRL/afficheSupprV">Supprimer</a></li>
-			<li role="presentation"><a
-				href="${pageContext.request.contextPath}/agCTRL/affichRecV">Rechercher
-					par id</a></li>
-	</nav>
+	<%@include file="/resources/template/header.html"%>
 
 	<br />
 	<h1 style="color: red; text-align: center">Liste des Vols</h1>

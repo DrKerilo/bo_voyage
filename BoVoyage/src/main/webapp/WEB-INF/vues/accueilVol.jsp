@@ -9,37 +9,22 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Accueil Vols</title>
 <!-- pour utiliser bootstrapjs-->
+<link rel="stylesheet"
+	href="<c:url value='/resources/css/bootstrap.css' />" />
 <script type="text/javascript"
 	src="<c:url value='/resources/js/jquery-3.3.1.js'/>"></script>
-
-<!-- pour utiliser bootstrapjs-->
 <script type="text/javascript"
 	src="<c:url value='/resources/js/bootstrap.js'/>"></script>
+<script type="text/javascript"
+	src="<c:url value='/resources/js/monJs.js'/>"></script>
 
-<!-- pour utiliser bootstrap -->
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/bootstrap.css'/>" />
 
 </head>
+
 <body>
 
-	<nav class="navbar navbar-inverse">
-		<ul class="nav nav-pills">
-			<li role="presentation"><a
-				href="${pageContext.request.contextPath}/agCTRL/listeV">AccueilVol</a></li>
-			<li role="presentation"><a
-				href="${pageContext.request.contextPath}/agCTRL/afficheAjoutV">Ajouter</a></li>
-			<li role="presentation"><a
-				href="${pageContext.request.contextPath}/agCTRL/affichModifV">Modifier</a></li>
-			<li role="presentation"><a
-				href="${pageContext.request.contextPath}/agCTRL/afficheSupprV">Supprimer</a></li>
-			<li role="presentation"><a
-				href="${pageContext.request.contextPath}/agCTRL/affichRecV">Rechercher
-					par id</a></li>
-					</ul>
-	</nav>
+	<%@include file="/resources/template/header.html"%>
 
-	<br />
 	<h1 style="color: red; text-align: center">Liste des Vols</h1>
 
 	<br />
