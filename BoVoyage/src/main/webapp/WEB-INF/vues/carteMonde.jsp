@@ -22,7 +22,7 @@
 <!-- pour utiliser bootstrap -->
 <link rel="stylesheet"
 	href="<c:url value='/resources/css/bootstrap.css'/>" />
-<!-- pour utiliser bootstrap -->
+<!-- pour utiliser world -->
 <link rel="stylesheet" href="<c:url value='/resources/css/world.css'/>" />
 
 
@@ -31,7 +31,7 @@
 
 <div>
 	<h3>Quelle partie du monde voulez-vous visiter aujhourd'hui? - Toutes nos offres, 
-			<a href="${pageContext.request.contextPath}/carteCTRL/listeOffes" target="_blank"> ICI</a> </h3>
+			<a href="${pageContext.request.contextPath}/carteCTRL/listeOffres" target="_blank"> ICI</a> </h3>
 
 </div>
 
