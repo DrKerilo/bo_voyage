@@ -5,11 +5,13 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -28,10 +30,13 @@ public class Hotel {
 	@Embedded
 	private Horaire horaire;
 	private int etoile;
-	@Lob
-	private byte[] photo;
+	
+	@OneToMany(fetch=FetchType.EAGER)
+	private List<ImageCLass> photos;
+	
 	@Transient
-	private String image;
+	private List<String> images;
+	
 
 	@ManyToMany(mappedBy = "listeHotel")
 	private List<Offre> listeOffreVoyage;
@@ -41,25 +46,23 @@ public class Hotel {
 		super();
 	}
 
-	public Hotel(Adresse adresse, String nom, Horaire horaire, int etoile, byte[] photo, String image) {
+	public Hotel(Adresse adresse, String nom, Horaire horaire, int etoile) {
 		super();
 		this.adresse = adresse;
 		this.nom = nom;
 		this.horaire = horaire;
 		this.etoile = etoile;
-		this.photo = photo;
-		this.image = image;
+
 	}
 
-	public Hotel(int id, Adresse adresse, String nom, Horaire horaire, int etoile, byte[] photo, String image) {
+	public Hotel(int id, Adresse adresse, String nom, Horaire horaire, int etoile) {
 		super();
 		this.id = id;
 		this.adresse = adresse;
 		this.nom = nom;
 		this.horaire = horaire;
 		this.etoile = etoile;
-		this.photo = photo;
-		this.image = image;
+
 	}
 
 	// Déclaration des getters et des setters
@@ -103,20 +106,24 @@ public class Hotel {
 		this.etoile = etoile;
 	}
 
-	public byte[] getPhoto() {
-		return photo;
+
+
+	public List<ImageCLass> getPhotos() {
+		return photos;
 	}
 
-	public void setPhoto(byte[] photo) {
-		this.photo = photo;
+	public void setPhotos(List<ImageCLass> photos) {
+		this.photos = photos;
 	}
 
-	public String getImage() {
-		return image;
+
+
+	public List<String> getImages() {
+		return images;
 	}
 
-	public void setImage(String image) {
-		this.image = image;
+	public void setImages(List<String> images) {
+		this.images = images;
 	}
 
 	public List<Offre> getListeOffreVoyage() {

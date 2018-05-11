@@ -66,20 +66,23 @@
 
 			</tr>
 
-				<tr>
-					<td>${hTrouve.id}</td>
-					<td>${hTrouve.nom}</td>
-					<td>${hTrouve.etoile}</td>
-					<td>${hTrouve.image}</td>
-					<td>${hTrouve.horaire.dateDep}</td>
-					<td>${hTrouve.horaire.heureDep}</td>
-					<td>${hTrouve.horaire.dateRet}</td>
-					<td>${hTrouve.horaire.heureRet}</td>
-					<td>${hTrouve.adresse.numero}</td>
-					<td>${hTrouve.adresse.rue}</td>
-					<td>${hTrouve.adresse.codePostal}</td>
-					<td>${hTrouve.adresse.ville}</td>
-				</tr>
+			<tr>
+				<td>${hTrouve.id}</td>
+				<td>${hTrouve.nom}</td>
+				<td>${hTrouve.etoile}</td>
+				<td><c:forEach var="im" items="${hTrouve.images}">
+						<img src="${im}" width="30" height="30">
+					</c:forEach></td>
+
+				<td>${hTrouve.horaire.dateDep}</td>
+				<td>${hTrouve.horaire.heureDep}</td>
+				<td>${hTrouve.horaire.dateRet}</td>
+				<td>${hTrouve.horaire.heureRet}</td>
+				<td>${hTrouve.adresse.numero}</td>
+				<td>${hTrouve.adresse.rue}</td>
+				<td>${hTrouve.adresse.codePostal}</td>
+				<td>${hTrouve.adresse.ville}</td>
+			</tr>
 
 		</table>
 	</div>

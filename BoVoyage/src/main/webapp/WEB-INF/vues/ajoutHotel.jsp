@@ -21,12 +21,12 @@
 <body>
 
 	<%@include file="/resources/template/header.html"%>
-	
+
 	<h1 style="color: red; text-align: center">FORMULAIRE D'AJOUT D'UN
 		HOTEL</h1>
 	<!-- Dans action on doit mettre l'URI de la méthode (model Attribute peut être remplacé par command Name-->
 	<form:form class="form-horizontal" method="POST" action="soumAjoutHot"
-		modelAttribute="hotel">
+		modelAttribute="hotel" enctype="multipart/form-data">
 		<div class="form-group">
 			<form:label cssClass="col-sm-2 control-label" path="nom">Nom de l'hotel</form:label>
 			<div class="col-sm-8">
@@ -99,7 +99,7 @@
 		<div class="form-group">
 			<form:label cssClass="col-sm-2 control-label" path="horaire.heureDep">Heure d'arrivée</form:label>
 			<div class="col-sm-8">
-				<input type="time" class="form-control" name="heure" />
+				<input type="time" class="form-control" name="heure"/>
 			</div>
 		</div>
 
@@ -109,8 +109,13 @@
 				<input type="time" class="form-control" name="heure2" />
 			</div>
 		</div>
-
-
+		
+	    <div class="form-group">
+			<label class="col-sm-2 control-label">Images</label>
+			<div class="col-sm-8">
+				<input name="upFiles" id="fileToUpload" type="file" multiple/>
+			</div>
+		</div>
 
 
 

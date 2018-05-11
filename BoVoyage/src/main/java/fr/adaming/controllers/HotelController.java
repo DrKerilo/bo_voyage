@@ -1,12 +1,24 @@
 package fr.adaming.controllers;
 
-import java.nio.channels.FileChannel.MapMode;
+import java.awt.image.BufferedImage;
+import java.io.BufferedOutputStream;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.imageio.ImageIO;
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpSession;
+
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -20,17 +32,24 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import fr.adaming.model.Hotel;
-import fr.adaming.model.Vol;
+import fr.adaming.model.ImageCLass;
 import fr.adaming.service.IHotelService;
 
 @Controller
 @RequestMapping("/agCTRL")
 public class HotelController {
 
+	
+	private static final String UPLOAD_DIRECTORY="/images";
+	private static final int THRESHOLD_SIZE=1024*1024*3;
+	
+	
 	@Autowired
 	private IHotelService hotelService;
 	
@@ -68,10 +87,21 @@ public class HotelController {
 	
 	// Soumettre le formulaire d'ajout d'un hotel 
 	@RequestMapping(value="soumAjoutHot", method=RequestMethod.POST)
-	public String soumFormAjoutHot(ModelMap modele, @ModelAttribute("hotel")Hotel hotel,@RequestParam("heure") @DateTimeFormat(iso=DateTimeFormat.ISO.TIME) LocalTime time,@RequestParam("heure2") @DateTimeFormat(iso=DateTimeFormat.ISO.TIME) LocalTime time2){
-		// Appel de la méthode ajouter de service 
+	public String soumFormAjoutHot(ModelMap modele, @ModelAttribute("hotel")Hotel hotel,@RequestParam("upFiles")MultipartFile[] files,@RequestParam("heure") @DateTimeFormat(iso=DateTimeFormat.ISO.TIME) LocalTime time,@RequestParam("heure2") @DateTimeFormat(iso=DateTimeFormat.ISO.TIME) LocalTime time2) throws IOException{
 		hotel.getHoraire().setHeureDep(new Date(20, 01, 01, time.getHour(), time.getMinute()));
 		hotel.getHoraire().setHeureRet(new Date(20, 01, 01, time2.getHour(), time2.getMinute()));
+
+		
+		// recup des photos et les transformer en byte[];
+		List<ImageCLass> images=new ArrayList<ImageCLass>();
+		
+		for (MultipartFile file : files) {
+			byte[] photo = file.getBytes();
+			ImageCLass imClass=new ImageCLass(photo);
+			images.add(imClass);
+		}
+		hotel.setPhotos(images);
+		
 		Hotel hOut = hotelService.addHotel(hotel);
 		if (hOut.getId()!=0){
 			return "redirect:listeHotels";
