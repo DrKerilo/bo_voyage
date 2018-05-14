@@ -85,7 +85,7 @@
 								
 								<td>${vol.modele}</td>
 								
-								<td><a>RESERVE</a></td>
+
 							</tr>
 						</c:forEach>
 					</table>
@@ -113,6 +113,7 @@
 			</div>
 			
 		</div>
+		<a href="${pageContext.request.contextPath}/newResaCTRL/newResaForm">RESERVE</a>
 	</div>
 
 </body>
