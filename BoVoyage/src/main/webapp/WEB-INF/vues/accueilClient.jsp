@@ -37,6 +37,7 @@
 			<li><a href="<c:url value='/clientCTRL/supLink/{cl.id}'/>"
 				data-confirm="Etes-vous certain de vouloir supprimer?">Supprimer
 					son compte</a></li>
+			<li><a href="<c:url value='/j_spring_security_logout'/>">Se déconnecter</a></li>
 		</ul>
 	</nav>
 
