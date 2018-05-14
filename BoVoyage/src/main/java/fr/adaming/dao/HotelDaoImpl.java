@@ -80,7 +80,7 @@ public class HotelDaoImpl implements IHotelDao {
 				+ "AND oh.h_id=h.id_h " + "AND o.id_off=?";
 
 		// creation d'un query pour envoyer la requete
-		Query query = em.createNativeQuery(req, Vol.class);
+		Query query = em.createNativeQuery(req, Hotel.class);
 
 		// passage des parametres
 		query.setParameter(1, id);
