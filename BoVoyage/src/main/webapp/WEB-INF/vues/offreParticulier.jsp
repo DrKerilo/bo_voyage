@@ -34,9 +34,9 @@
 <body>
 
 	<h2 style="text-align: center">
-		${offre.destination.ville} est magnifique le period de
+		${offre.destination.ville} est magnifique pour la période du
 		<fmt:formatDate value="${offre.dateDep}" pattern="dd-MM-yy" />
-		jusqu'à
+		jusqu'au
 		<fmt:formatDate value="${offre.dateRet}" pattern="dd-MM-yy" />
 	</h2>
 
@@ -67,6 +67,7 @@
 							<th>Heure Arr</th>
 
 							<th>Modele</th>
+							
 							<th></th>
 						</tr>
 						<c:forEach var="vol" items="${offre.listeVol}">
@@ -83,10 +84,31 @@
 								<td>${vol.horaire.heureRet}</td>
 								
 								<td>${vol.modele}</td>
+								
 								<td><a>RESERVE</a></td>
 							</tr>
 						</c:forEach>
 					</table>
+					
+					<table class="table table-bordered" style="text-align: center">
+			<tr style="text-align: center">
+				
+				<th>photo<th>
+			
+			</tr>
+			
+				<tr>
+					
+					<td><c:forEach var="im" items="${offre.images}">
+						<img src="${im}" width="100" height="100">
+					</c:forEach></td>
+					
+				</tr>
+		
+		</table>
+					
+					
+					
 				</div>
 			</div>
 			

@@ -27,7 +27,7 @@
 	<h1 style="color: red; text-align: center">Modifier un vol</h1>
 
 	<form:form cssClass="form-horizontal" method="POST" action="soumettreModifV"
-		modelAttribute="hModif">
+		modelAttribute="vModif">
 		
 		<div class="form-group">
 			<form:label cssClass="col-sm-2 control-label" path="id">id</form:label>
