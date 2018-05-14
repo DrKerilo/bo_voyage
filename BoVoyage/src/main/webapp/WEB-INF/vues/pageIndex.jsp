@@ -30,24 +30,20 @@
 		$('[data-toggle="popover"]').popover()
 	})
 </script>
-
-<!-- Custom styles for this template -->
-<link href="<c:url value='/resources/js/carousel.css'/>"
-	rel="stylesheet">
 </head>
 
 <%-- <%response.sendRedirect("resaCTRL/listeResa"); %> --%>
 
 <body>
-<!-- NAVBAR
+	<!-- NAVBAR
 ================================================== -->
 	<div class="navbar-wrapper">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-2">
-				<a href="<c:url value='/home'/>">
-					<img src="<c:url value='resources/images/logoBV.png'/>"
-						style="height: 100px; width =auto; border: 1px solid; border-color: black"></a>
+					<a href="<c:url value='/home'/>"> <img
+						src="<c:url value='resources/images/logoBV.png'/>"
+						style="height: 100px; width: auto; border: 1px solid; border-color: black"></a>
 				</div>
 				<nav class="navbar navbar-static-top col-sm-10"
 					style="background-color: rgba(245, 222, 179, 0.9); border: 2px solid; border-color: #337ab7; margin-top: 22px">
@@ -55,10 +51,9 @@
 						<div class="navbar-header">
 							<button type="button" class="navbar-toggle collapsed"
 								data-toggle="collapse" data-target="#navbar"
-								aria-expanded="false" aria-controls="navbar">
-								<span class="sr-only">Afficher navigation</span> <span
-									class="icon-bar"></span> <span class="icon-bar"></span> <span
-									class="icon-bar"></span>
+								aria-expanded="false" aria-controls="navbar" style="border:1px solid;border-color: #337ab7">
+								<span class="sr-only">Toggle navigation</span> <span
+									class="glyphicon glyphicon-triangle-bottom" style="color:#337ab7;"></span>
 							</button>
 							<a class="navbar-brand" href="<c:url value='/home'/>"><span
 								class="glyphicon glyphicon-home"></span></a>
@@ -226,7 +221,9 @@
 					src="<c:url value='resources/images/continentNAf.jpg'/>"
 					alt="Afrique du Nord" width="140" height="140">
 				<h2>Afrique du Nord</h2>
-				<p>Envie de chaleur ? Venez profiter de l'accueil chaleureux qui vous attend au sud de la Méditerranée et découvrez-en les douceurs !</p>
+				<p>Envie de chaleur ? Venez profiter de l'accueil chaleureux qui
+					vous attend au sud de la Méditerranée et découvrez-en les douceurs
+					!</p>
 				<p>
 					<a class="btn btn-default"
 						href="<c:url value='/carteCTRL/listeNorthAfrica'/>" role="button">Découvrir

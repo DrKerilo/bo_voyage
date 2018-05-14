@@ -1,20 +1,20 @@
 /* Style perso
 -------------------------------------------------- */
 
-/* .navbar .navbar-nav > li > a:hover, .navbar .navbar-nav > li > a:focus { */
-/*     background-color: papayawhip; */
-/*     color: #8B4513; */
-/* } */
+.navbar .navbar-nav > li > a:hover, .navbar .navbar-nav > li > a:focus {
+    background-color: papayawhip;
+    color: #8B4513;
+}
 
-/* .navbar ul li > ul { */
-/*   background: #F5DEB3; */
-/*   color: #8B4513; */
-/*   box-shadow: none; */
-/* } */
+.navbar ul li > ul {
+  background: #F5DEB3;
+  color: #8B4513;
+  box-shadow: none;
+}
 
-/* .navbar dropdown li a:hover { */
-/*    background-color: papayawhip; */
-/* } */
+.navbar dropdown li a:hover {
+   background-color: papayawhip;
+}
 
 /* GLOBAL STYLES
 -------------------------------------------------- */
