@@ -123,24 +123,28 @@ public class OffreServiceImpl implements IOffreService {
 	}
 
 	@Override
-	public List<Offre> getOffresByPays(String Pays) {
+	public List<Offre> getOffresByPays(String pays) {
 		List<Offre> liste = getAlloffres();
 		List<Offre> listePays = new ArrayList<Offre>();
-		for (int i = 0; i < liste.size(); i++) {
-			if (liste.get(i).getDestination().getPays().equals(Pays)) {
-				listePays.add(liste.get(i));
+		for (Offre o : liste) {
+			if (!o.getDestination().getPays().equals(null)) {
+				if (o.getDestination().getPays().equals(pays)) {
+					listePays.add(o);
+				}
 			}
 		}
 		return listePays;
 	}
 
 	@Override
-	public List<Offre> getOffresByVille(String Ville) {
+	public List<Offre> getOffresByVille(String ville) {
 		List<Offre> liste = getAlloffres();
 		List<Offre> listeVille = new ArrayList<Offre>();
-		for (int i = 0; i < liste.size(); i++) {
-			if (liste.get(i).getDestination().getPays().equals(Ville)) {
-				listeVille.add(liste.get(i));
+		for (Offre o : liste) {
+			if (!o.getDestination().getVille().equals(null)) {
+				if (o.getDestination().getVille().equals(ville)) {
+					listeVille.add(o);
+				}
 			}
 		}
 		return listeVille;

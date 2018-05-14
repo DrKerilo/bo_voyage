@@ -1,11 +1,14 @@
 package fr.adaming.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import fr.adaming.model.Offre;
@@ -66,4 +69,17 @@ public class CarteController {
 		return new ModelAndView("OffreToutes", "listeToutes", liste);
 	}
 
+	@RequestMapping(value = "/where", method = RequestMethod.GET)
+	public ModelAndView afficheOffreParVille(@RequestParam(value = "ville") String ville) {
+		List<Offre> liste = new ArrayList<Offre>();
+		liste = offreService.getOffresByVille(ville);
+		return new ModelAndView("OffreVille", "listeVille", liste);
+	}
+
+	@RequestMapping(value = "/where2", method = RequestMethod.GET)
+	public ModelAndView afficheOffreParPays(@RequestParam(value = "pays") String pays) {
+		List<Offre> liste = new ArrayList<Offre>();
+		liste = offreService.getOffresByPays(pays);
+		return new ModelAndView("OffrePays", "listePays", liste);
+	}
 }
