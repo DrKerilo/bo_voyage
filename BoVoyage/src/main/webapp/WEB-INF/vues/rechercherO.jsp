@@ -80,8 +80,8 @@
 				<th>prix publix</th>
 				<th>prix BoVoyage</th>
 				<th>hotel</th>
-				<th>photo</th>
-				<th>Operations</th>
+				<th>photo<th>
+			
 			</tr>
 			
 				<tr>
@@ -99,12 +99,11 @@
 					<td>${oFind.statut}</td>
 					<td>${oFind.prixPublic}</td>
 					<td>${oFind.prixBoV}</td>
-					<td><a
-						href="${pageContext.request.contextPath}/agCTRL/listeHOffre/${o.id}">Liste des hotels</a></td>
-					<td>${oFind.photoOff}</td>
+					<td><a href="${pageContext.request.contextPath}/agCTRL/listeHOffre/${o.id}">Liste des hotels</a></td>
+					<td><c:forEach var="im" items="${oFind.images}">
+						<img src="${im}" width="30" height="30">
+					</c:forEach></td>
 					
-					<td><a
-						href="${pageContext.request.contextPath}/mCTRL/supprLink/${m.id}">Supprimer</a></td>
 				</tr>
 		
 		</table>

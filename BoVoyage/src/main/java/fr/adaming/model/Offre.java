@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.JoinColumn;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -22,6 +23,9 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 @Entity
 @Table(name = "offres")
@@ -44,10 +48,14 @@ public class Offre implements Serializable {
 	private String statut;
 	private double prixPublic;
 	private double prixBoV;
-	@Lob
-	private byte[] photoOff;
+
+	
+	
+	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	private List<ImageCLass2> photos;
+	
 	@Transient
-	private String imageOff;
+	private List<String> images;
 
 	// Transfo assos avec voiture
 	@OneToOne(mappedBy = "offreVoyage")
@@ -60,7 +68,6 @@ public class Offre implements Serializable {
 	// Transfo assos avec vol
 
 	@ManyToMany(fetch = FetchType.EAGER)
-
 	@JoinTable(name = "offre_vol", joinColumns = @JoinColumn(name = "off_id", referencedColumnName = "id_off"), inverseJoinColumns = @JoinColumn(name = "v_id", referencedColumnName = "id_v"))
 	private List<Vol> listeVol;
 
@@ -75,8 +82,7 @@ public class Offre implements Serializable {
 	}
 
 	public Offre(String formule, Destination destination, String hebergement, String reference, Date dateDep,
-			Date dateRet, long nbPlacesDispo, String statut, double prixPublic, double prixBoV, byte[] photoOff,
-			String imageOff) {
+			Date dateRet, long nbPlacesDispo, String statut, double prixPublic, double prixBoV) {
 		super();
 		this.formule = formule;
 		this.destination = destination;
@@ -88,13 +94,11 @@ public class Offre implements Serializable {
 		this.statut = statut;
 		this.prixPublic = prixPublic;
 		this.prixBoV = prixBoV;
-		this.photoOff = photoOff;
-		this.imageOff = imageOff;
+	
 	}
 
 	public Offre(int id, String formule, Destination destination, String hebergement, String reference, Date dateDep,
-			Date dateRet, long nbPlacesDispo, String statut, double prixPublic, double prixBoV, byte[] photoOff,
-			String imageOff) {
+			Date dateRet, long nbPlacesDispo, String statut, double prixPublic, double prixBoV) {
 		super();
 		this.id = id;
 		this.formule = formule;
@@ -107,8 +111,7 @@ public class Offre implements Serializable {
 		this.statut = statut;
 		this.prixPublic = prixPublic;
 		this.prixBoV = prixBoV;
-		this.photoOff = photoOff;
-		this.imageOff = imageOff;
+
 	}
 
 	// Getter et setter
@@ -200,21 +203,6 @@ public class Offre implements Serializable {
 		this.prixBoV = prixBoV;
 	}
 
-	public byte[] getPhotoOff() {
-		return photoOff;
-	}
-
-	public void setPhotoOff(byte[] photoOff) {
-		this.photoOff = photoOff;
-	}
-
-	public String getImageOff() {
-		return imageOff;
-	}
-
-	public void setImageOff(String imageOff) {
-		this.imageOff = imageOff;
-	}
 
 	public Voiture getVoiture() {
 		return voiture;
@@ -248,13 +236,29 @@ public class Offre implements Serializable {
 		this.listeHotel = listeHotel;
 	}
 
+
+	public List<ImageCLass2> getPhotos() {
+		return photos;
+	}
+
+	public void setPhotos(List<ImageCLass2> photos) {
+		this.photos = photos;
+	}
+
+	public List<String> getImages() {
+		return images;
+	}
+
+	public void setImages(List<String> images) {
+		this.images = images;
+	}
+
 	// toString
 	@Override
 	public String toString() {
 		return "Offre [id=" + id + ", formule=" + formule + ", hebergement=" + hebergement + ", reference=" + reference
 				+ ", dateDep=" + dateDep + ", dateRet=" + dateRet + ", nbPlacesDispo=" + nbPlacesDispo + ", statut="
-				+ statut + ", prixPublic=" + prixPublic + ", prixBoV=" + prixBoV + ", photoOff="
-				+ Arrays.toString(photoOff) + ", imageOff=" + imageOff + "]";
+				+ statut + ", prixPublic=" + prixPublic + ", prixBoV=" + prixBoV + "]";
 	}
 
 }

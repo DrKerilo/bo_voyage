@@ -1,19 +1,23 @@
 package fr.adaming.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import org.apache.commons.codec.binary.Base64;
 import org.springframework.stereotype.Repository;
 
+import fr.adaming.model.ImageCLass;
+import fr.adaming.model.ImageCLass2;
 import fr.adaming.model.Offre;
 
 @Repository
 public class OffreDaoImpl implements IOffreDao {
 
-	@PersistenceContext
+	@PersistenceContext(unitName = "PU_BoVoyage_JPA")
 	private EntityManager em;
 
 	@Override
@@ -48,9 +52,18 @@ public class OffreDaoImpl implements IOffreDao {
 	}
 
 	@Override
-	public Offre getOffrebyId(Offre off) {
+	public Offre getOffrebyId(Offre off){
+		Offre o= em.find(Offre.class, off.getId());
+		
+		List<String> images = new ArrayList<String>();
 
-		return em.find(Offre.class, off.getId());
+		for (ImageCLass2 photo : o.getPhotos()) {
+			String img = "data:image/png;base64," + Base64.encodeBase64String(photo.getPhoto());
+			images.add(img);
+		}
+		o.setImages(images);
+
+		return o;
 	}
 
 }

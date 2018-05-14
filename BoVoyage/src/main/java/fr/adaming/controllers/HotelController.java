@@ -87,7 +87,7 @@ public class HotelController {
 	
 	// Soumettre le formulaire d'ajout d'un hotel 
 	@RequestMapping(value="soumAjoutHot", method=RequestMethod.POST)
-	public String soumFormAjoutHot(ModelMap modele, @ModelAttribute("hotel")Hotel hotel,@RequestParam("upFiles")MultipartFile[] files,@RequestParam("heure") @DateTimeFormat(iso=DateTimeFormat.ISO.TIME) LocalTime time,@RequestParam("heure2") @DateTimeFormat(iso=DateTimeFormat.ISO.TIME) LocalTime time2) throws IOException{
+	public String soumFormAjoutHot(ModelMap modele, @ModelAttribute("hotel")Hotel hotel,@RequestParam("upFiles")MultipartFile[] files, @RequestParam("heure") @DateTimeFormat(iso=DateTimeFormat.ISO.TIME) LocalTime time,@RequestParam("heure2") @DateTimeFormat(iso=DateTimeFormat.ISO.TIME) LocalTime time2) throws IOException{
 		hotel.getHoraire().setHeureDep(new Date(20, 01, 01, time.getHour(), time.getMinute()));
 		hotel.getHoraire().setHeureRet(new Date(20, 01, 01, time2.getHour(), time2.getMinute()));
 

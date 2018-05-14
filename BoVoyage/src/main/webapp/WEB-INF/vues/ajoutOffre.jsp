@@ -21,11 +21,13 @@
 </head>
 <body>
 
+<%@include file="/resources/template/header.html"%>
+
 	<hr />
 	<h1 style="color: red; text-align: center">Ajouter une Offre</h1>
 
 	<form:form cssClass="form-horizontal" method="POST"
-		action="soumettreAjoutO" modelAttribute="oAjout">
+		action="soumettreAjoutO" modelAttribute="oAjout" enctype="multipart/form-data">
 
 		<div class="form-group">
 			<form:label cssClass="col-sm-2 control-label" path="formule">Formule</form:label>
@@ -154,6 +156,13 @@
 			<div class="col-sm-8">
 				<form:input cssClass="form-control" placeholder="prixBoV"
 					path="prixBoV" />
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<label class="col-sm-2 control-label">Images</label>
+			<div class="col-sm-8">
+				<input name="upFiles" id="fileToUpload" type="file" multiple/>
 			</div>
 		</div>
 

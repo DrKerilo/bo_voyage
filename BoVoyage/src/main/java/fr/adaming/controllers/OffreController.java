@@ -1,8 +1,10 @@
 package fr.adaming.controllers;
 
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -20,9 +22,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import fr.adaming.model.Hotel;
+import fr.adaming.model.ImageCLass;
+import fr.adaming.model.ImageCLass2;
 import fr.adaming.model.Offre;
 import fr.adaming.model.Vol;
 import fr.adaming.service.IOffreService;
@@ -32,6 +38,9 @@ import fr.adaming.service.IOffreService;
 @Scope("session")
 
 public class OffreController {
+
+	private static final String UPLOAD_DIRECTORY = "/images";
+	private static final int THRESHOLD_SIZE = 1024 * 1024 * 3;
 
 	@Autowired
 	private IOffreService offreService;
@@ -80,17 +89,25 @@ public class OffreController {
 
 	// SOUMETTRE LE FORMULAIRE
 	@RequestMapping(value = "/soumettreAjoutO", method = RequestMethod.POST)
-	public String soumettreFormAjoutO(ModelMap model, @ModelAttribute("oAjout") Offre o) {
+	public String soumettreFormAjoutO(ModelMap model, @ModelAttribute("oAjout") Offre off,
+			@RequestParam("upFiles") MultipartFile[] files) throws IOException {
 
-		// appel de la methode
-		Offre oOut = offreService.addOffre(o);
+		// recup des photos et les transformer en byte[];
+		List<ImageCLass2> images = new ArrayList<ImageCLass2>();
 
+		for (MultipartFile file : files) {
+			byte[] photo = file.getBytes();
+			ImageCLass2 imClass = new ImageCLass2(photo);
+			images.add(imClass);
+		}
+		off.setPhotos(images);
+
+		Offre oOut = offreService.addOffre(off);
 		if (oOut.getId() != 0) {
 			return "redirect:listeO";
 		} else {
 			return "redirect:afficheAjoutO";
 		}
-
 	}
 
 	// MODIFIER UNE OFFRE
@@ -135,35 +152,32 @@ public class OffreController {
 
 	}
 
-	
 	// RECHERCHER UNE OFFRE
-			// afficher le formulaire de recherche
-			@RequestMapping(value = "/affichRecO", method = RequestMethod.GET)
-			public ModelAndView afficheFormRecherche() {
-				return new ModelAndView("rechercherO", "oRec", new Offre());
-			}
+	// afficher le formulaire de recherche
+	@RequestMapping(value = "/affichRecO", method = RequestMethod.GET)
+	public ModelAndView afficheFormRecherche() {
+		return new ModelAndView("rechercherO", "oRec", new Offre());
+	}
 
-			// soumettre un formulaire de recherche
-			@RequestMapping(value = "/soumettreRecO", method = RequestMethod.POST)
-			public String soumettreFormRec(ModelMap modele, @ModelAttribute("oRec") Offre o, RedirectAttributes rda) {
-				// rechercher 
-				Offre oRec =offreService.getOffrebyId(o);
+	// soumettre un formulaire de recherche
+	@RequestMapping(value = "/soumettreRecO", method = RequestMethod.POST)
+	public String soumettreFormRec(ModelMap modele, @ModelAttribute("oRec") Offre o, RedirectAttributes rda) {
+		// rechercher
+		Offre oRec = offreService.getOffrebyId(o);
 
-				if (oRec != null) {
-					// mettre  en lien avec la page
-					modele.addAttribute("oFind", oRec);
+		if (oRec != null) {
+			// mettre en lien avec la page
+			modele.addAttribute("oFind", oRec);
 
-					return "rechercherO";
-				} else {
-					// ajouter un message d'erreur dans le modele de MVC2 et le passer à
-					// la methode afficheRec
-					rda.addFlashAttribute("msg", "l'offre recherché n'existe pas ! :( ");
+			return "rechercherO";
+		} else {
+			// ajouter un message d'erreur dans le modele de MVC2 et le passer à
+			// la methode afficheRec
+			rda.addFlashAttribute("msg", "l'offre recherché n'existe pas ! :( ");
 
-					return "redirect:affichRecO";
-				}
+			return "redirect:affichRecO";
+		}
 
-			}
-		
-	
-	
+	}
+
 }

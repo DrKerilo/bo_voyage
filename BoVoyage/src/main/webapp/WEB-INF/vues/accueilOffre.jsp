@@ -49,7 +49,7 @@
 				<th>prix publix</th>
 				<th>prix BoVoyage</th>
 				<th>hotel</th>
-				<th>photo</th>
+				
 				
 			</tr>
 			<c:forEach var="o" items="${listeOffres}">
@@ -70,7 +70,7 @@
 					<td>${o.prixBoV}</td>
 					<td><a
 						href="${pageContext.request.contextPath}/agCTRL/listeHOffre/${o.id}">Liste des hotels</a></td>
-					<td>${o.photoOff}</td>
+					
 					
 				</tr>
 			</c:forEach>
