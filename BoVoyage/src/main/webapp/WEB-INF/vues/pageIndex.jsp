@@ -289,7 +289,7 @@
 
 		<footer style="margin-top: 30px">
 			<a role="button" class="btn btn-default"
-				href="<c:url value='/agCTRL/pageAccueil'/>"> <span
+				href="<c:url value='/clientCTRL/listeResa'/>"> <span
 				class="glyphicon glyphicon-briefcase"></span> Espace Conseiller
 			</a>
 			<p class="pull-right">
