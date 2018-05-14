@@ -38,15 +38,16 @@
 
 <%-- <%response.sendRedirect("resaCTRL/listeResa"); %> --%>
 
+<body>
 <!-- NAVBAR
 ================================================== -->
-<body>
 	<div class="navbar-wrapper">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-2">
+				<a href="<c:url value='/home'/>">
 					<img src="<c:url value='resources/images/logoBV.png'/>"
-						style="height: 100px; width =auto; border: 1px solid; border-color: black">
+						style="height: 100px; width =auto; border: 1px solid; border-color: black"></a>
 				</div>
 				<nav class="navbar navbar-static-top col-sm-10"
 					style="background-color: rgba(245, 222, 179, 0.9); border: 2px solid; border-color: #337ab7; margin-top: 22px">
@@ -59,7 +60,7 @@
 									class="icon-bar"></span> <span class="icon-bar"></span> <span
 									class="icon-bar"></span>
 							</button>
-							<a class="navbar-brand" href="#"><span
+							<a class="navbar-brand" href="<c:url value='/home'/>"><span
 								class="glyphicon glyphicon-home"></span></a>
 						</div>
 						<div id="navbar" class="navbar-collapse collapse">

@@ -7,6 +7,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class LoginController {
+	
+	// Afficher la page d'accueil du site
+	@RequestMapping(value="/home", method=RequestMethod.GET)
+	public String afficheAccueil(){
+		return "pageIndex";
+	}
 
 	// afficher la page de login
 	@RequestMapping(value="/login", method=RequestMethod.GET)
