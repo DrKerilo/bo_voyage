@@ -46,7 +46,7 @@ public class VolServiceImpl implements IVolService{
 	@Override
 	public Vol getVolbyId(Vol v) {
 		
-		return vol.addVol(v);
+		return vol.getVolbyId(v);
 	}
 
 	@Override
