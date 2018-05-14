@@ -21,20 +21,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-inverse">
-		<ul class="nav nav-pills">
-			<li role="presentation"><a
-				href="${pageContext.request.contextPath}/agCTRL/listeO">AccueilVol</a></li>
-			<li role="presentation"><a
-				href="${pageContext.request.contextPath}/agCTRL/afficheAjoutO">Ajouter</a></li>
-			<li role="presentation"><a
-				href="${pageContext.request.contextPath}/agCTRL/affichModifO">Modifier</a></li>
-			<li role="presentation"><a
-				href="${pageContext.request.contextPath}/agCTRL/afficheSupprO">Supprimer</a></li>
-			<li role="presentation"><a
-				href="${pageContext.request.contextPath}/agCTRL/affichRecO">Rechercher
-					par id</a></li>
-	</nav>
+<%@include file="/resources/template/header.html"%>
 <h1 style="color: red; text-align: center">Formulaire de recherche
 		des Offres</h1>
 
@@ -94,12 +81,12 @@
 					<td>${oFind.reference}</td>
 					<td>${oFind.dateDep}</td>
 					<td>${oFind.dateRet}</td>
-					<td><a href="${pageContext.request.contextPath}/agCTRL/listeVOffre/${o.id}">Liste des vols</a></td>
+					<td><a href="${pageContext.request.contextPath}/agCTRL/listeVOffre/${oFind.id}">Liste des vols</a></td>
 					<td>${oFind.nbPlacesDispo}</td>
 					<td>${oFind.statut}</td>
 					<td>${oFind.prixPublic}</td>
 					<td>${oFind.prixBoV}</td>
-					<td><a href="${pageContext.request.contextPath}/agCTRL/listeHOffre/${o.id}">Liste des hotels</a></td>
+					<td><a href="${pageContext.request.contextPath}/agCTRL/listeHOffre/${oFind.id}">Liste des hotels</a></td>
 					<td><c:forEach var="im" items="${oFind.images}">
 						<img src="${im}" width="30" height="30">
 					</c:forEach></td>

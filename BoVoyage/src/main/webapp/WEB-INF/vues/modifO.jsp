@@ -25,7 +25,7 @@
 	<h1 style="color: red; text-align: center">Modifier une Offre</h1>
 
 	<form:form cssClass="form-horizontal" method="POST"
-		action="soumettreModifO" modelAttribute="oModif">
+		action="soumettreModifO" modelAttribute="oModif" enctype="multipart/form-data">
 		<div class="form-group">
 			<form:label cssClass="col-sm-2 control-label" path="id">id</form:label>
 			<div class="col-sm-8">
@@ -156,12 +156,12 @@
 		</div>
 
 <div class="form-group">
-			<form:label cssClass="col-sm-2 control-label" path="photoOff">Image</form:label>
+			<label class="col-sm-2 control-label">Images</label>
 			<div class="col-sm-8">
-				<form:input cssClass="form-control" placeholder="photo"
-					path="prixBoV" />
+				<input name="upFiles" id="fileToUpload" type="file" multiple/>
 			</div>
 		</div>
+			
 
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-8">
