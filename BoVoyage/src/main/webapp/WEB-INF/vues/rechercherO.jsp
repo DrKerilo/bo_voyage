@@ -64,7 +64,7 @@
 				<th>vol</th>
 				<th>nombre de places disponibles</th>
 				<th>statut</th>
-				<th>prix publix</th>
+				<th>prix public</th>
 				<th>prix BoVoyage</th>
 				<th>hotel</th>
 				<th>photo<th>
