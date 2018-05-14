@@ -55,7 +55,7 @@ public class OffreServiceImpl implements IOffreService {
 		List<Offre> liste = getAlloffres();
 		List<Offre> listeNA = new ArrayList<Offre>();
 		for (int i = 0; i < liste.size(); i++) {
-			if (liste.get(i).getDestination().getContinent().equals("North America")) {
+			if (liste.get(i).getDestination().getContinent().equals("Amerique du Nord")) {
 				listeNA.add(liste.get(i));
 			}
 		}
@@ -67,7 +67,7 @@ public class OffreServiceImpl implements IOffreService {
 		List<Offre> liste = getAlloffres();
 		List<Offre> listeSA = new ArrayList<Offre>();
 		for (int i = 0; i < liste.size(); i++) {
-			if (liste.get(i).getDestination().getContinent().equals("South America")) {
+			if (liste.get(i).getDestination().getContinent().equals("Amerique du Sud")) {
 				listeSA.add(liste.get(i));
 			}
 		}
@@ -79,7 +79,7 @@ public class OffreServiceImpl implements IOffreService {
 		List<Offre> liste = getAlloffres();
 		List<Offre> listeAfr = new ArrayList<Offre>();
 		for (int i = 0; i < liste.size(); i++) {
-			if (liste.get(i).getDestination().getContinent().equals("Africa")) {
+			if (liste.get(i).getDestination().getContinent().equals("Afrique")) {
 				listeAfr.add(liste.get(i));
 			}
 		}
@@ -103,7 +103,7 @@ public class OffreServiceImpl implements IOffreService {
 		List<Offre> liste = getAlloffres();
 		List<Offre> listeNAfr = new ArrayList<Offre>();
 		for (int i = 0; i < liste.size(); i++) {
-			if (liste.get(i).getDestination().getContinent().equals("North Africa")) {
+			if (liste.get(i).getDestination().getContinent().equals("Afrique du Nord")) {
 				listeNAfr.add(liste.get(i));
 			}
 		}
@@ -115,11 +115,23 @@ public class OffreServiceImpl implements IOffreService {
 		List<Offre> liste = getAlloffres();
 		List<Offre> listeAs = new ArrayList<Offre>();
 		for (int i = 0; i < liste.size(); i++) {
-			if (liste.get(i).getDestination().getContinent().equals("Asia")) {
+			if (liste.get(i).getDestination().getContinent().equals("Asie")) {
 				listeAs.add(liste.get(i));
 			}
 		}
 		return listeAs;
+	}
+
+	@Override
+	public List<Offre> getOffresByPays(String Pays) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Offre> getOffresByVille(String Ville) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

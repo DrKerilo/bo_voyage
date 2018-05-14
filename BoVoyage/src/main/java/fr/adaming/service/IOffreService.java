@@ -28,4 +28,8 @@ public interface IOffreService {
 
 	List<Offre> getAlloffresNorthAfrica();
 
+	List<Offre> getOffresByPays(String Pays);
+
+	List<Offre> getOffresByVille(String Ville);
+
 }
