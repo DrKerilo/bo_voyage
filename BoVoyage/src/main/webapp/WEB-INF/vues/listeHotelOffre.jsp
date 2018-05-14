@@ -31,7 +31,6 @@
 				<th>ID</th>
 				<th>Nom</th>
 				<th>Nombre d'étoiles</th>
-				<th>Photo</th>
 				<th>Date d'arrivée</th>
 				<th>Heure d'arrivée</th>
 				<th>Date de départ</th>
@@ -42,12 +41,11 @@
 				<th>Ville</th>
 			</tr>
 
-			<c:forEach var="h" items="${listeH}">
+			<c:forEach var="h" items="${listeHotelsOff}">
 				<tr>
 					<td>${h.id}</td>
 					<td>${h.nom}</td>
 					<td>${h.etoile}</td>
-					<td>${h.image}</td>
 					<td>${h.horaire.dateDep}</td>
 					<td>${h.horaire.heureDep}</td>
 					<td>${h.horaire.dateRet}</td>

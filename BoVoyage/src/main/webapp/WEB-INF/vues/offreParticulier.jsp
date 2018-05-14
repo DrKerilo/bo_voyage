@@ -89,15 +89,13 @@
 							</tr>
 						</c:forEach>
 					</table>
+				
 					
 					<table class="table table-bordered" style="text-align: center">
 			<tr style="text-align: center">
-				
-				<th>photo<th>
-			
-			</tr>
-			
-				<tr>
+								<th>photo<th>
+						</tr>
+							<tr>
 					
 					<td><c:forEach var="im" items="${offre.images}">
 						<img src="${im}" width="100" height="100">
