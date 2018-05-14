@@ -124,14 +124,27 @@ public class OffreServiceImpl implements IOffreService {
 
 	@Override
 	public List<Offre> getOffresByPays(String Pays) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Offre> liste = getAlloffres();
+		List<Offre> listePays = new ArrayList<Offre>();
+		for (int i = 0; i < liste.size(); i++) {
+			if (liste.get(i).getDestination().getPays().equals(Pays)) {
+				listePays.add(liste.get(i));
+			}
+		}
+		return listePays;
 	}
 
 	@Override
 	public List<Offre> getOffresByVille(String Ville) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Offre> liste = getAlloffres();
+		List<Offre> listeVille = new ArrayList<Offre>();
+		for (int i = 0; i < liste.size(); i++) {
+			if (liste.get(i).getDestination().getPays().equals(Ville)) {
+				listeVille.add(liste.get(i));
+			}
+		}
+		return listeVille;
+
 	}
 
 }
