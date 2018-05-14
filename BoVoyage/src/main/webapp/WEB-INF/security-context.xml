@@ -26,7 +26,8 @@
 		<!-- spécifier les url Http à protéger avec la balise intercept-url via l'attribut pattern -->
 		<security:intercept-url pattern="/agCTRL/**" access="ROLE_AGENT" />
 		<security:intercept-url pattern="/clientCTRL/**" access="ROLE_CLIENT" />
-		<security:intercept-url pattern="/clientCTRL/**" access="ROLE_AGENT" />
+
+
 		
 
 		<!-- utiliser le formulaire généré automatiquement par spring security -->

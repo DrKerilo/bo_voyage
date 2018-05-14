@@ -7,6 +7,6 @@
 <title>Index</title>
 </head>
 <body>
-<% response.sendRedirect("logout"); %>
+<% response.sendRedirect("home"); %>
 </body>
 </html>
