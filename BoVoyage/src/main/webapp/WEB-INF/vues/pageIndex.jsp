@@ -69,15 +69,22 @@
 									aria-expanded="false">Découvrir <span class="caret"></span></a>
 									<ul class="dropdown-menu">
 										<li class="dropdown-header">Par continent</li>
-										<li><a href="#">Afrique</a></li>
-										<li><a href="#">Afrique du Nord</a></li>
-										<li><a href="#">Amérique du Nord</a></li>
-										<li><a href="#">Amérique du Sud</a></li>
-										<li><a href="#">Asie</a></li>
-										<li><a href="#">Europe</a></li>
+										<li><a href="<c:url value='/carteCTRL/listeAfrica'/>">Afrique</a></li>
+										<li><a
+											href="<c:url value='/carteCTRL/listeNorthAfrica'/>">Afrique
+												du Nord</a></li>
+										<li><a
+											href="<c:url value='/carteCTRL/listeNorthAmerica'/>">Amérique
+												du Nord</a></li>
+										<li><a
+											href="<c:url value='/carteCTRL/listeSouthAmerica'/>">Amérique
+												du Sud</a></li>
+										<li><a href="<c:url value='/carteCTRL/listeAsia'/>">Asie</a></li>
+										<li><a href="<c:url value='/carteCTRL/listeEurope'/>">Europe</a></li>
 										<li role="separator" class="divider"></li>
 										<li class="dropdown-header">Mappemonde</li>
-										<li><a href="#">Visionner la carte du monde</a></li>
+										<li><a href="<c:url value='/carteCTRL/carteMonde'/>">Visionner
+												la carte du monde</a></li>
 									</ul></li>
 								<li><a href="#contact">Contact</a></li>
 							</ul>
@@ -113,7 +120,8 @@
 						<p>Avec BoVoyage, profitez de prix réduits sur des offres de
 							voyage exceptionnelles dans le monde entier !</p>
 						<p>
-							<a class="btn btn-lg btn-primary" href="#" role="button">Découvrir
+							<a class="btn btn-lg btn-primary"
+								href="<c:url value='/carteCTRL/listeOffres'/>" role="button">Découvrir
 								nos offres</a>
 						</p>
 					</div>
@@ -191,8 +199,9 @@
 					dans les monts enneigés du Canada, laissez-vous séduire par les
 					charmes du Nouveau Monde !</p>
 				<p>
-					<a class="btn btn-default" href="#" role="button">Découvrir les
-						offres &raquo;</a>
+					<a class="btn btn-default"
+						href="<c:url value='/carteCTRL/listeNorthAmerica'/>" role="button">Découvrir
+						les offres &raquo;</a>
 				</p>
 			</div>
 			<!-- /.col-lg-4 -->
@@ -205,8 +214,9 @@
 					plateaux boliviens, ou bien venez danser au rythme endiablé de la
 					Samba pendant le carnaval de Rio !</p>
 				<p>
-					<a class="btn btn-default" href="#" role="button">Découvrir les
-						offres &raquo;</a>
+					<a class="btn btn-default"
+						href="<c:url value='/carteCTRL/listeSouthAmerica'/>" role="button">Découvrir
+						les offres &raquo;</a>
 				</p>
 			</div>
 			<!-- /.col-lg-4 -->
@@ -215,10 +225,11 @@
 					src="<c:url value='resources/images/continentNAf.jpg'/>"
 					alt="Afrique du Nord" width="140" height="140">
 				<h2>Afrique du Nord</h2>
-				<p>Venez découvrir les charmes de l'Afrique du Nord !</p>
+				<p>Envie de chaleur ? Venez profiter de l'accueil chaleureux qui vous attend au sud de la Méditerranée et découvrez-en les douceurs !</p>
 				<p>
-					<a class="btn btn-default" href="#" role="button">Découvrir les
-						offres &raquo;</a>
+					<a class="btn btn-default"
+						href="<c:url value='/carteCTRL/listeNorthAfrica'/>" role="button">Découvrir
+						les offres &raquo;</a>
 				</p>
 			</div>
 			<!-- /.col-lg-4 -->
@@ -235,8 +246,9 @@
 					sauvages, ou venez découvrir les paysages magnifiques et méconnus
 					des grands espaces africains !</p>
 				<p>
-					<a class="btn btn-default" href="#" role="button">Découvrir les
-						offres &raquo;</a>
+					<a class="btn btn-default"
+						href="<c:url value='/carteCTRL/listeAfrica'/>" role="button">Découvrir
+						les offres &raquo;</a>
 				</p>
 			</div>
 			<!-- /.col-lg-4 -->
@@ -245,10 +257,13 @@
 					src="<c:url value='resources/images/continentEU.jpg'/>"
 					alt="Europe" width="140" height="140">
 				<h2>Europe</h2>
-				<p>Venez découvrir les charmes du Vieux Continent !</p>
+				<p>Évadez-vous à Venise pour un week-end romantique, à Paris
+					pour faire du shopping, ou partez en direction du nord pour prendre
+					un grand bol d'air frais dans les fjords scandinaves !</p>
 				<p>
-					<a class="btn btn-default" href="#" role="button">Découvrir les
-						offres &raquo;</a>
+					<a class="btn btn-default"
+						href="<c:url value='/carteCTRL/listeEurope'/>" role="button">Découvrir
+						les offres &raquo;</a>
 				</p>
 			</div>
 			<!-- /.col-lg-4 -->
@@ -257,10 +272,13 @@
 					src="<c:url value='resources/images/continentAsie.jpg'/>"
 					alt="Asie" width="140" height="140">
 				<h2>Asie</h2>
-				<p>Venez découvrir les charmes de l'Orient !</p>
+				<p>Laissez-vous charmer par le plus grand continent, des déserts
+					d'Arabie aux steppes de la Sibérie, du Proche-Orient aux cerisiers
+					du Japon !</p>
 				<p>
-					<a class="btn btn-default" href="#" role="button">Découvrir les
-						offres &raquo;</a>
+					<a class="btn btn-default"
+						href="<c:url value='/carteCTRL/listeAsia'/>" role="button">Découvrir
+						les offres &raquo;</a>
 				</p>
 			</div>
 			<!-- /.col-lg-4 -->
@@ -270,14 +288,15 @@
 		<!-- FOOTER -->
 
 		<footer style="margin-top: 30px">
-			<a role="button" class="btn btn-default" href="<c:url value='/agCTRL/pageAccueil'/>">
-			<span class="glyphicon glyphicon-briefcase"></span> Espace Conseiller
+			<a role="button" class="btn btn-default"
+				href="<c:url value='/agCTRL/pageAccueil'/>"> <span
+				class="glyphicon glyphicon-briefcase"></span> Espace Conseiller
 			</a>
 			<p class="pull-right">
 				<a href="#">Haut de page <span
 					class="glyphicon glyphicon-arrow-up"></span></a>
 			</p>
-			<p style="margin-top:20px">
+			<p style="margin-top: 20px">
 				&copy; 2018 Groupe ADAMING &middot; <a tabindex="0"
 					data-toggle="popover" data-container="body" data-trigger="focus"
 					data-placement="top" title="Attention !"
